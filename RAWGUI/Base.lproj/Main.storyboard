@@ -15,14 +15,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.5" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultBackgroundImage" translatesAutoresizingMaskIntoConstraints="NO" id="Hta-9o-VTc" userLabel="backgroundImage">
-                                <rect key="frame" x="0.0" y="0.0" width="428" height="250"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultBackgroundImage" translatesAutoresizingMaskIntoConstraints="NO" id="Hta-9o-VTc" userLabel="backgroundImage">
+                                <rect key="frame" x="0.0" y="44" width="428" height="250"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="250" id="dKm-DE-eWX"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nkh-JV-2tb">
-                                <rect key="frame" x="16" y="190" width="396" height="75"/>
+                                <rect key="frame" x="16" y="234" width="396" height="75"/>
                                 <string key="text">The game. 
 Part II</string>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
@@ -30,17 +30,15 @@ Part II</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MUT-17-CZv" userLabel="aboutTextView">
-                                <rect key="frame" x="16" y="312" width="396" height="598"/>
+                                <rect key="frame" x="16" y="356" width="396" height="554"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <string key="text">The Legend of Zelda: Breath of the Wild is an adventure game developed by Nintendo. It is the nineteenth installment in the series.
-After awakening from a hundred year sleep, memoryless Link hears a mysterious female voice that guides him to a destroyed kingdom of Hyrule. He finds a Wiseman who says that a ruthless creature, Calamity Ganon, was imprisoned for 100 years. Even though the creature is trapped, it is still gaining power. Link sets out to kill Ganon before he frees himself and destroys the world.
-In contrast to the previous titles in the series, Breath of the Wild the player to explore a vast open world. At the beginning of the game, a small tutorial is given to the players and they are free to travel the world at the pace they see fit. Link can climb almost every surface in the world, cook food to restore health. Fast travel to certain places in the world is also available for the players. The world is highly interactive thanks to the chemistry engine.</string>
+                                <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Scc-f2-LxA">
-                                <rect key="frame" x="16" y="281" width="396" height="23"/>
+                                <rect key="frame" x="16" y="325" width="396" height="23"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -50,7 +48,7 @@ In contrast to the previous titles in the series, Breath of the Wild the player 
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Scc-f2-LxA" secondAttribute="trailing" constant="16" id="DwL-yp-bZG"/>
-                            <constraint firstItem="Hta-9o-VTc" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="M1f-Lb-5uc"/>
+                            <constraint firstItem="Hta-9o-VTc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="M1f-Lb-5uc"/>
                             <constraint firstItem="Hta-9o-VTc" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="NVN-zL-eka"/>
                             <constraint firstItem="Scc-f2-LxA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="PKs-uq-vO7"/>
                             <constraint firstItem="Scc-f2-LxA" firstAttribute="top" secondItem="Nkh-JV-2tb" secondAttribute="bottom" constant="16" id="Srq-b5-LuW"/>

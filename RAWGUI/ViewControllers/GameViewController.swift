@@ -16,6 +16,7 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchGame()
+        configureBackgroundView()
     }
     
     private func fetchGame() {
@@ -44,9 +45,18 @@ class GameViewController: UIViewController {
             } catch let jsonError {
                 print(jsonError)
             }
-            
         }.resume()
-        
+    }
+    
+    private func configureBackgroundView() {
+        let gradientMaskLayer = CAGradientLayer()
+        gradientMaskLayer.frame = backgroundImage.bounds
+        gradientMaskLayer.colors = [UIColor.white.cgColor,
+                                    UIColor.clear.cgColor]
+        gradientMaskLayer.locations = [0, 1]
+        backgroundImage.layer.mask = gradientMaskLayer
+        view.addSubview(backgroundImage)
+        backgroundImage.layer.cornerRadius = 20
     }
 }
 
