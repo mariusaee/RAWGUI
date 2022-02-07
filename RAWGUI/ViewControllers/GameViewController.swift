@@ -18,19 +18,35 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureBackgroundView()
-        fetchTheGame(from: LinksManager.shared.gameURL)
+        fetchTheGameWithResult(from: LinksManager.shared.gameURL)
     }
     
     private func fetchTheGame(from url: String?) {
-        NetworkManager.shared.fetchData(from: url) { game in
+        NetworkManager.shared.fetchData(from: url) { [self] game in
             self.game = game
-            DispatchQueue.main.async {
+            guard let imageString = game.background_image else { return }
+            guard let imageUrl = URL(string: imageString) else { return }
+            guard let imageData = try? Data(contentsOf: imageUrl) else { return }
+            
+            backgroundImage.image = UIImage(data: imageData)
+            gameNameLabel.text = game.name
+            aboutGameTextView.text = game.description_raw
+        }
+    }
+    
+    private func fetchTheGameWithResult(from url: String) {
+        NetworkManager.shared.fetchDataWithResult(from: url) { [self] result in
+            switch result {
+            case .success(let game):
+                self.game = game
                 guard let imageString = game.background_image else { return }
                 guard let imageUrl = URL(string: imageString) else { return }
                 guard let imageData = try? Data(contentsOf: imageUrl) else { return }
-                self.backgroundImage.image = UIImage(data: imageData)
-                self.gameNameLabel.text = game.name
-                self.aboutGameTextView.text = game.description_raw
+                backgroundImage.image = UIImage(data: imageData)
+                gameNameLabel.text = game.name
+                aboutGameTextView.text = game.description_raw
+            case .failure(let error):
+                print(error)
             }
         }
     }
