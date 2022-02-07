@@ -24,7 +24,6 @@ class GameViewController: UIViewController {
         let apiKey = "e29e1df3581e4b07b4b7ea370b4cda67"
         
         guard let url = URL(string: urlString + apiKey) else { return }
-        print(url)
         
         URLSession.shared.dataTask(with: url) { data, _, error in
             guard let data = data else {
