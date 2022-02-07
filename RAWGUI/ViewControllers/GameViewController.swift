@@ -55,7 +55,6 @@ class GameViewController: UIViewController {
                                     UIColor.clear.cgColor]
         gradientMaskLayer.locations = [0, 1]
         backgroundImage.layer.mask = gradientMaskLayer
-        view.addSubview(backgroundImage)
         backgroundImage.layer.cornerRadius = 20
     }
 }
