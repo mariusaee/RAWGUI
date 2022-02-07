@@ -13,38 +13,26 @@ class GameViewController: UIViewController {
     @IBOutlet var gameNameLabel: UILabel!
     @IBOutlet var aboutGameTextView: UITextView!
     
+    private var game: Game?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchGame()
         configureBackgroundView()
+        fetchTheGame(from: LinksManager.shared.gameURL)
     }
     
-    private func fetchGame() {
-        let urlString = "https://api.rawg.io/api/games/22511?key="
-        let apiKey = "e29e1df3581e4b07b4b7ea370b4cda67"
-        
-        guard let url = URL(string: urlString + apiKey) else { return }
-        
-        URLSession.shared.dataTask(with: url) { data, _, error in
-            guard let data = data else {
-                print(error?.localizedDescription ?? "No description")
-                return
+    private func fetchTheGame(from url: String?) {
+        NetworkManager.shared.fetchData(from: url) { game in
+            self.game = game
+            DispatchQueue.main.async {
+                guard let imageString = game.background_image else { return }
+                guard let imageUrl = URL(string: imageString) else { return }
+                guard let imageData = try? Data(contentsOf: imageUrl) else { return }
+                self.backgroundImage.image = UIImage(data: imageData)
+                self.gameNameLabel.text = game.name
+                self.aboutGameTextView.text = game.description_raw
             }
-            do {
-                let game = try JSONDecoder().decode(Game.self, from: data)
-                
-                DispatchQueue.main.async {
-                    guard let imageString = game.background_image else { return }
-                    guard let imageUrl = URL(string: imageString) else { return }
-                    guard let imageData = try? Data(contentsOf: imageUrl) else { return }
-                    self.backgroundImage.image = UIImage(data: imageData)
-                    self.gameNameLabel.text = game.name
-                    self.aboutGameTextView.text = game.description_raw
-                }
-            } catch let jsonError {
-                print(jsonError)
-            }
-        }.resume()
+        }
     }
     
     private func configureBackgroundView() {
