@@ -65,3 +65,14 @@ class NetworkManager {
     }
 }
 
+class ImageManager {
+    static let shared = ImageManager()
+    
+    private init() {}
+    
+    func fetchImage(from url: String?) -> Data? {
+        guard let stringURL = url else { return nil }
+        guard let imageURL = URL(string: stringURL) else { return nil }
+        return try? Data(contentsOf: imageURL)
+    }
+}

@@ -39,10 +39,8 @@ class GameViewController: UIViewController {
             switch result {
             case .success(let game):
                 self.game = game
-                guard let imageString = game.background_image else { return }
-                guard let imageUrl = URL(string: imageString) else { return }
-                guard let imageData = try? Data(contentsOf: imageUrl) else { return }
-                backgroundImage.image = UIImage(data: imageData)
+                guard let imageData2 = ImageManager.shared.fetchImage(from: game.background_image) else { return }
+                backgroundImage.image = UIImage(data: imageData2)
                 gameNameLabel.text = game.name
                 aboutGameTextView.text = game.description_raw
             case .failure(let error):
