@@ -21,34 +21,6 @@ class GameViewController: UIViewController {
         fetch(from: Link.randomGame.rawValue)
     }
     
-    private func fetchTheGame(from url: String?) {
-        NetworkManager.shared.fetchData(from: url) { [self] game in
-            self.game = game
-            guard let imageString = game.backgroundImage else { return }
-            guard let imageUrl = URL(string: imageString) else { return }
-            guard let imageData = try? Data(contentsOf: imageUrl) else { return }
-            
-            backgroundImage.image = UIImage(data: imageData)
-            gameNameLabel.text = game.name
-            aboutGameTextView.text = game.descriptionRaw
-        }
-    }
-    
-    private func fetchTheGameWithResult(from url: String) {
-        NetworkManager.shared.fetchDataWithResult(from: url) { [self] result in
-            switch result {
-            case .success(let game):
-                self.game = game
-                guard let imageData = ImageManager.shared.fetchImage(from: game.backgroundImage) else { return }
-                backgroundImage.image = UIImage(data: imageData)
-                gameNameLabel.text = game.name
-                aboutGameTextView.text = game.descriptionRaw
-            case .failure(let error):
-                print(error)
-            }
-        }
-    }
-    
     private func fetch(from url: String) {
         NetworkManager.shared.fetch(dataType: Game.self, from: url) { [self] result in
             switch result {
