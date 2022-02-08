@@ -18,19 +18,19 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureBackgroundView()
-        fetch(from: LinksManager.shared.gameURL)
+        fetch(from: Link.randomGame.rawValue)
     }
     
     private func fetchTheGame(from url: String?) {
         NetworkManager.shared.fetchData(from: url) { [self] game in
             self.game = game
-            guard let imageString = game.background_image else { return }
+            guard let imageString = game.backgroundImage else { return }
             guard let imageUrl = URL(string: imageString) else { return }
             guard let imageData = try? Data(contentsOf: imageUrl) else { return }
             
             backgroundImage.image = UIImage(data: imageData)
             gameNameLabel.text = game.name
-            aboutGameTextView.text = game.description_raw
+            aboutGameTextView.text = game.descriptionRaw
         }
     }
     
@@ -39,10 +39,10 @@ class GameViewController: UIViewController {
             switch result {
             case .success(let game):
                 self.game = game
-                guard let imageData = ImageManager.shared.fetchImage(from: game.background_image) else { return }
+                guard let imageData = ImageManager.shared.fetchImage(from: game.backgroundImage) else { return }
                 backgroundImage.image = UIImage(data: imageData)
                 gameNameLabel.text = game.name
-                aboutGameTextView.text = game.description_raw
+                aboutGameTextView.text = game.descriptionRaw
             case .failure(let error):
                 print(error)
             }
@@ -54,10 +54,10 @@ class GameViewController: UIViewController {
             switch result {
             case .success(let game):
                 self.game = game
-                guard let imageData = ImageManager.shared.fetchImage(from: game.background_image) else { return }
+                guard let imageData = ImageManager.shared.fetchImage(from: game.backgroundImage) else { return }
                 backgroundImage.image = UIImage(data: imageData)
                 gameNameLabel.text = game.name
-                aboutGameTextView.text = game.description_raw
+                aboutGameTextView.text = game.descriptionRaw
             case .failure(let error):
                 print(error)
             }
