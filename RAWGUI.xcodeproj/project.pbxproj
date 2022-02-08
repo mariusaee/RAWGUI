@@ -74,6 +74,16 @@
 			path = Storyboards;
 			sourceTree = "<group>";
 		};
+		2977207227B2A3620022E5C8 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				29BE3FA727AC04CC002E5F81 /* AppDelegate.swift */,
+				29BE3FA927AC04CC002E5F81 /* SceneDelegate.swift */,
+				29BE3FB527AC04D3002E5F81 /* Info.plist */,
+			);
+			name = SupportingFiles;
+			sourceTree = "<group>";
+		};
 		29BE3F9B27AC04CC002E5F81 = {
 			isa = PBXGroup;
 			children = (
@@ -93,14 +103,12 @@
 		29BE3FA627AC04CC002E5F81 /* RAWGUI */ = {
 			isa = PBXGroup;
 			children = (
-				29BE3FA727AC04CC002E5F81 /* AppDelegate.swift */,
-				29BE3FA927AC04CC002E5F81 /* SceneDelegate.swift */,
+				2977207227B2A3620022E5C8 /* SupportingFiles */,
 				2977206827AC218C0022E5C8 /* Models */,
 				2977206527AC1F490022E5C8 /* ViewControllers */,
 				2977206B27B10CEB0022E5C8 /* Services */,
 				2977207027B29E6B0022E5C8 /* Storyboards */,
 				29BE3FB027AC04D3002E5F81 /* Assets.xcassets */,
-				29BE3FB527AC04D3002E5F81 /* Info.plist */,
 			);
 			path = RAWGUI;
 			sourceTree = "<group>";

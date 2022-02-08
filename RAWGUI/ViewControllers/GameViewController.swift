@@ -18,10 +18,10 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureBackgroundView()
-        fetch(from: Link.randomGame.rawValue)
+        fetchGame(from: Link.randomGame.rawValue)
     }
     
-    private func fetch(from url: String) {
+    private func fetchGame(from url: String) {
         NetworkManager.shared.fetch(dataType: Game.self, from: url) { [self] result in
             switch result {
             case .success(let game):
