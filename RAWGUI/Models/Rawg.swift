@@ -1,5 +1,5 @@
 //
-//  Game.swift
+//  Rawg.swift
 //  RAWGUI
 //
 //  Created by Marius Malyshev on 03.02.2022.

@@ -15,8 +15,8 @@ class GamesTableViewController: UITableViewController {
     // MARK: - UIViewController Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.rowHeight = 70
         fetchGames(from: Link.randomGames.rawValue)
+        tableView.rowHeight = 100
     }
 
     // MARK: - Table view data source
@@ -27,20 +27,23 @@ class GamesTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        
         var content = cell.defaultContentConfiguration()
-
-        content.text = games?[indexPath.row].name
-
+        content.imageProperties.maximumSize = CGSize(width: 200, height: 200)
+        
+        let game = games?[indexPath.row]
+        content.text = game?.name
+        
         DispatchQueue.global().async {
-            guard let stringUrl = self.games?[indexPath.row].backgroundImage else { return }
+            guard let stringUrl = game?.backgroundImage else { return }
             guard let imageUrl = URL(string: stringUrl) else { return }
             guard let imageData = try? Data(contentsOf: imageUrl) else { return }
             DispatchQueue.main.async {
                 content.image = UIImage(data: imageData)
-                content.imageProperties.maximumSize = CGSize(width: 50, height: 50)
                 cell.contentConfiguration = content
             }
         }
+        cell.contentConfiguration = content
         return cell
     }
 
