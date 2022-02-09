@@ -82,7 +82,7 @@ class GamesTableViewController: UITableViewController {
     
     // MARK: - Private methods
     private func fetchGames(from url: String) {
-        NetworkManager.shared.fetch(dataType: GamesResponse.self, from: url) { result in
+        NetworkManager.shared.fetch(dataType: Rawg.self, from: url) { result in
             switch result {
             case .success(let gamesResponse):
                 self.games = gamesResponse.results ?? []

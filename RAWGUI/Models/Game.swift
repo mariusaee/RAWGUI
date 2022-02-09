@@ -5,7 +5,7 @@
 //  Created by Marius Malyshev on 03.02.2022.
 //
 
-struct GamesResponse: Codable {
+struct Rawg: Codable {
     let results: [Game]?
 }
 
