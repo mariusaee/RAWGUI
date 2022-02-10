@@ -35,14 +35,14 @@
                                             <rect key="frame" x="0.0" y="0.0" width="270" height="180"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultBackgroundImage" translatesAutoresizingMaskIntoConstraints="NO" id="pYP-60-Z0k" userLabel="GameImage">
-                                                    <rect key="frame" x="0.0" y="0.0" width="270" height="155.66666666666666"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="270" height="146"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sbO-f6-R8v" userLabel="GameNameLabel">
-                                                    <rect key="frame" x="114.33333333333333" y="159.66666666666666" width="41.333333333333329" height="20.333333333333343"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sbO-f6-R8v" userLabel="GameNameLabel">
+                                                    <rect key="frame" x="112" y="150" width="46" height="30"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20.333333969116211" id="Q6z-ki-oWr"/>
+                                                        <constraint firstAttribute="height" constant="30" id="F25-l1-fXG"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -73,7 +73,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HRU-wL-1Fw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-705.14018691588785" y="784.66522678185754"/>
+            <point key="canvasLocation" x="143" y="-33"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -89,25 +89,17 @@
                                     <constraint firstAttribute="height" constant="250" id="dKm-DE-eWX"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nkh-JV-2tb">
-                                <rect key="frame" x="16" y="278" width="396" height="75"/>
-                                <string key="text">The game. 
-Part II</string>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="MUT-17-CZv" userLabel="aboutTextView">
-                                <rect key="frame" x="16" y="400" width="396" height="510"/>
+                                <rect key="frame" x="16" y="333" width="396" height="577"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Scc-f2-LxA">
-                                <rect key="frame" x="16" y="369" width="396" height="23"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Scc-f2-LxA">
+                                <rect key="frame" x="16" y="288" width="396" height="37"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -119,27 +111,23 @@ Part II</string>
                             <constraint firstItem="Hta-9o-VTc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="M1f-Lb-5uc"/>
                             <constraint firstItem="Hta-9o-VTc" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="NVN-zL-eka"/>
                             <constraint firstItem="Scc-f2-LxA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="PKs-uq-vO7"/>
-                            <constraint firstItem="Scc-f2-LxA" firstAttribute="top" secondItem="Nkh-JV-2tb" secondAttribute="bottom" constant="16" id="Srq-b5-LuW"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Nkh-JV-2tb" secondAttribute="trailing" constant="16" id="WWl-gk-SKQ"/>
+                            <constraint firstItem="Scc-f2-LxA" firstAttribute="top" secondItem="Hta-9o-VTc" secondAttribute="bottom" constant="-50" id="Srq-b5-LuW"/>
                             <constraint firstAttribute="bottom" secondItem="MUT-17-CZv" secondAttribute="bottom" constant="16" id="b9G-VJ-vLg"/>
                             <constraint firstItem="MUT-17-CZv" firstAttribute="top" secondItem="Scc-f2-LxA" secondAttribute="bottom" constant="8" id="eO9-HY-dvB"/>
                             <constraint firstItem="MUT-17-CZv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="nIj-Oz-yc8"/>
                             <constraint firstItem="Hta-9o-VTc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="vcQ-eQ-L4L"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="MUT-17-CZv" secondAttribute="trailing" constant="16" id="vqS-2G-fZT"/>
-                            <constraint firstItem="Nkh-JV-2tb" firstAttribute="top" secondItem="Hta-9o-VTc" secondAttribute="bottom" constant="-60" id="xp6-CV-uuD"/>
-                            <constraint firstItem="Nkh-JV-2tb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="yqL-eG-Ews"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="RTt-oZ-6W1"/>
                     <connections>
                         <outlet property="aboutGameTextView" destination="MUT-17-CZv" id="dZb-KW-v8A"/>
                         <outlet property="backgroundImage" destination="Hta-9o-VTc" id="mFw-ra-beM"/>
-                        <outlet property="gameNameLabel" destination="Nkh-JV-2tb" id="LAw-bq-v4a"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="55" y="785"/>
+            <point key="canvasLocation" x="903" y="-33"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="5dh-kD-TBY">
@@ -157,7 +145,7 @@ Part II</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3aX-c7-KWy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1473" y="785"/>
+            <point key="canvasLocation" x="-624" y="-33"/>
         </scene>
     </scenes>
     <resources>

@@ -21,6 +21,7 @@ class GameViewController: UIViewController {
         guard let gameID = game?.id else { return }
         let url = "https://api.rawg.io/api/games/\(gameID)?key=e29e1df3581e4b07b4b7ea370b4cda67"
         fetchGame(from: url)
+        title = game?.name
     }
 
     private func fetchGame(from url: String) {
@@ -30,7 +31,7 @@ class GameViewController: UIViewController {
                 self.game = game
                 guard let imageData = ImageManager.shared.fetchImage(from: game.backgroundImage, with: .size640) else { return }
                 backgroundImage.image = UIImage(data: imageData)
-                gameNameLabel.text = game.name
+//                gameNameLabel.text = game.name
                 aboutGameTextView.text = game.descriptionRaw
             case .failure(let error):
                 print(error)
