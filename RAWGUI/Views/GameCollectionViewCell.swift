@@ -17,9 +17,11 @@ class GameCollectionViewCell: UICollectionViewCell {
         
         DispatchQueue.global().async {
             guard let imageString = game.backgroundImage else { return }
-            guard let imageURL = URL(string: imageString) else { return }
-            guard let imageData = try? Data(contentsOf: imageURL) else { return }
             
+            let resizedImageString = imageString.replacingOccurrences(of: "media/games", with: "media/resize/640/-/games")
+            guard let imageURL = URL(string: resizedImageString) else { return }
+
+            guard let imageData = try? Data(contentsOf: imageURL) else { return }
             DispatchQueue.main.async {
                 self.gameImage.layer.cornerRadius = 15
                 self.gameImage.image = UIImage(data: imageData)
