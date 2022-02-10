@@ -13,6 +13,13 @@ enum NetworkError: Error {
     case decodingError
 }
 
+enum ResizeResolution: String {
+    case size200 = "200"
+    case size640 = "640"
+    case size1280 = "1280"
+    case size1920 = "1920"
+}
+
 class NetworkManager {
     static let shared = NetworkManager()
     
@@ -48,9 +55,9 @@ class ImageManager {
     
     private init() {}
     
-    func fetchImage(from url: String?) -> Data? {
+    func fetchImage(from url: String?, with resizeResolution: ResizeResolution) -> Data? {
         guard let url = url else { return nil }
-        let resizedImageString = url.replacingOccurrences(of: "media/games", with: "media/resize/640/-/games")
+        let resizedImageString = url.replacingOccurrences(of: "media/games", with: "media/resize/\(resizeResolution.rawValue)/-/games")
         guard let imageURL = URL(string: resizedImageString) else { return nil }
         return try? Data(contentsOf: imageURL)
     }

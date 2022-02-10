@@ -28,7 +28,7 @@ class GameViewController: UIViewController {
             switch result {
             case .success(let game):
                 self.game = game
-                guard let imageData = ImageManager.shared.fetchImage(from: game.backgroundImage) else { return }
+                guard let imageData = ImageManager.shared.fetchImage(from: game.backgroundImage, with: .size640) else { return }
                 backgroundImage.image = UIImage(data: imageData)
                 gameNameLabel.text = game.name
                 aboutGameTextView.text = game.descriptionRaw
