@@ -13,7 +13,7 @@ class GamesCollectionViewController: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchGames(from: Link.randomGames.rawValue)
+        fetchGames(from: Link.allGames.rawValue)
     }
 
     // MARK: UICollectionViewDataSource

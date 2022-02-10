@@ -17,6 +17,6 @@ struct Game: Codable {
 }
 
 enum Link: String {
-    case randomGame = "https://api.rawg.io/api/games/22511?key=e29e1df3581e4b07b4b7ea370b4cda67"
-    case randomGames = "https://api.rawg.io/api/games?key=e29e1df3581e4b07b4b7ea370b4cda67"
+    case zelda = "https://api.rawg.io/api/games/22511?key=e29e1df3581e4b07b4b7ea370b4cda67"
+    case allGames = "https://api.rawg.io/api/games?key=e29e1df3581e4b07b4b7ea370b4cda67"
 }
