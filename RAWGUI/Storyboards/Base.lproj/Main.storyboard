@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wXc-Gi-Qgp">
+    <device id="retina6_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -9,40 +10,11 @@
     </dependencies>
     <scenes>
         <!--Games-->
-        <scene sceneID="vPn-62-U3c">
-            <objects>
-                <tableViewController id="rC6-se-Oph" customClass="GamesTableViewController" customModule="RAWGUI" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="p3I-2x-xuh">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="peU-II-dBW">
-                                <rect key="frame" x="0.0" y="44.5" width="600" height="43.5"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="peU-II-dBW" id="HLG-Xy-FnG">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="rC6-se-Oph" id="3ew-10-NBB"/>
-                            <outlet property="delegate" destination="rC6-se-Oph" id="TWV-jX-B6u"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Games" id="gbf-Il-Ynl"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="GcR-UC-5SY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-704" y="106"/>
-        </scene>
-        <!--Games-->
         <scene sceneID="6Zq-KY-k4P">
             <objects>
                 <collectionViewController id="fRi-y9-7kd" customClass="GamesCollectionViewController" customModule="RAWGUI" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="OgE-J5-ZmJ">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="O3r-Dh-idJ">
@@ -53,7 +25,7 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="game" id="XZK-Uy-4gz" customClass="GameCollectionViewCell" customModule="RAWGUI" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="270" height="180"/>
+                                <rect key="frame" x="79" y="0.0" width="270" height="180"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="0bz-lR-oHs">
                                     <rect key="frame" x="0.0" y="0.0" width="270" height="180"/>
@@ -63,10 +35,10 @@
                                             <rect key="frame" x="0.0" y="0.0" width="270" height="180"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultBackgroundImage" translatesAutoresizingMaskIntoConstraints="NO" id="pYP-60-Z0k" userLabel="GameImage">
-                                                    <rect key="frame" x="0.0" y="0.0" width="270" height="155.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="270" height="155.66666666666666"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sbO-f6-R8v" userLabel="GameNameLabel">
-                                                    <rect key="frame" x="114.5" y="159.5" width="41.5" height="20.5"/>
+                                                    <rect key="frame" x="114.33333333333333" y="159.66666666666666" width="41.333333333333329" height="20.333333333333343"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20.333333969116211" id="Q6z-ki-oWr"/>
                                                     </constraints>
@@ -88,6 +60,7 @@
                                 <connections>
                                     <outlet property="gameImage" destination="pYP-60-Z0k" id="xUr-2h-PZX"/>
                                     <outlet property="gameNameLabel" destination="sbO-f6-R8v" id="1rS-9S-4gA"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="6bw-gh-jbG"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -102,38 +75,22 @@
             </objects>
             <point key="canvasLocation" x="-705.14018691588785" y="784.66522678185754"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="a3c-5M-pcF">
-            <objects>
-                <navigationController id="Hp2-9j-WjA" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="5Fj-Ve-PEy">
-                        <rect key="frame" x="0.0" y="44" width="428" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="rC6-se-Oph" kind="relationship" relationship="rootViewController" id="S7m-Ia-7VD"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gR5-ip-nqr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1472" y="106"/>
-        </scene>
         <!--Game View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="GameViewController" customModule="RAWGUI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultBackgroundImage" translatesAutoresizingMaskIntoConstraints="NO" id="Hta-9o-VTc" userLabel="backgroundImage">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="250"/>
+                                <rect key="frame" x="0.0" y="88" width="428" height="250"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="250" id="dKm-DE-eWX"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nkh-JV-2tb">
-                                <rect key="frame" x="16" y="190" width="568" height="75"/>
+                                <rect key="frame" x="16" y="278" width="396" height="75"/>
                                 <string key="text">The game. 
 Part II</string>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
@@ -141,7 +98,7 @@ Part II</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MUT-17-CZv" userLabel="aboutTextView">
-                                <rect key="frame" x="16" y="312" width="568" height="272"/>
+                                <rect key="frame" x="16" y="400" width="396" height="510"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -149,7 +106,7 @@ Part II</string>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Scc-f2-LxA">
-                                <rect key="frame" x="16" y="281" width="568" height="23"/>
+                                <rect key="frame" x="16" y="369" width="396" height="23"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -173,6 +130,7 @@ Part II</string>
                             <constraint firstItem="Nkh-JV-2tb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="yqL-eG-Ews"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="RTt-oZ-6W1"/>
                     <connections>
                         <outlet property="aboutGameTextView" destination="MUT-17-CZv" id="dZb-KW-v8A"/>
                         <outlet property="backgroundImage" destination="Hta-9o-VTc" id="mFw-ra-beM"/>
@@ -181,7 +139,7 @@ Part II</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="83" y="106"/>
+            <point key="canvasLocation" x="55" y="785"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="5dh-kD-TBY">

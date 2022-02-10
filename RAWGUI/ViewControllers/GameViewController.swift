@@ -13,14 +13,16 @@ class GameViewController: UIViewController {
     @IBOutlet var gameNameLabel: UILabel!
     @IBOutlet var aboutGameTextView: UITextView!
     
-    private var game: Game?
+    var game: Game?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureBackgroundView()
-        fetchGame(from: Link.randomGame.rawValue)
+        guard let gameID = game?.id else { return }
+        let url = "https://api.rawg.io/api/games/\(gameID)?key=e29e1df3581e4b07b4b7ea370b4cda67"
+        fetchGame(from: url)
     }
-    
+
     private func fetchGame(from url: String) {
         NetworkManager.shared.fetch(dataType: Game.self, from: url) { [self] result in
             switch result {

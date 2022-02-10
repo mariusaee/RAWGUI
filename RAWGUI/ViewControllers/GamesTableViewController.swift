@@ -24,7 +24,6 @@ class GamesTableViewController: UITableViewController {
         games?.count ?? 0
     }
 
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
@@ -47,15 +46,13 @@ class GamesTableViewController: UITableViewController {
         return cell
     }
 
-    /*
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        guard let gameVC = segue.destination as? GameViewController else { return }
+        
     }
-    */
     
     // MARK: - Private methods
     private func fetchGames(from url: String) {
