@@ -23,7 +23,6 @@ class NetworkManager {
             completion(.failure(.invalidURL))
             return
         }
-        
         URLSession.shared.dataTask(with: url) { data, _, error in
             guard let data = data else {
                 completion(.failure(.noData))

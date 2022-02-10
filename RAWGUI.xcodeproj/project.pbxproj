@@ -8,8 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2958DF9127B3D8A5008D63F7 /* GamesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2958DF9027B3D8A5008D63F7 /* GamesCollectionViewController.swift */; };
-		2958DF9327B3D937008D63F7 /* SuperheroCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2958DF9227B3D937008D63F7 /* SuperheroCollectionViewCell.swift */; };
-		2958DF9A27B43E54008D63F7 /* Superhero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2958DF9927B43E54008D63F7 /* Superhero.swift */; };
+		2958DF9327B3D937008D63F7 /* GameCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2958DF9227B3D937008D63F7 /* GameCollectionViewCell.swift */; };
 		2977206727AC1F830022E5C8 /* Rawg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2977206627AC1F830022E5C8 /* Rawg.swift */; };
 		2977206D27B10D040022E5C8 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2977206C27B10D040022E5C8 /* NetworkManager.swift */; };
 		2977207427B2A4000022E5C8 /* GamesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2977207327B2A4000022E5C8 /* GamesTableViewController.swift */; };
@@ -23,8 +22,7 @@
 
 /* Begin PBXFileReference section */
 		2958DF9027B3D8A5008D63F7 /* GamesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesCollectionViewController.swift; sourceTree = "<group>"; };
-		2958DF9227B3D937008D63F7 /* SuperheroCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperheroCollectionViewCell.swift; sourceTree = "<group>"; };
-		2958DF9927B43E54008D63F7 /* Superhero.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Superhero.swift; sourceTree = "<group>"; };
+		2958DF9227B3D937008D63F7 /* GameCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCollectionViewCell.swift; sourceTree = "<group>"; };
 		2977206627AC1F830022E5C8 /* Rawg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rawg.swift; sourceTree = "<group>"; };
 		2977206C27B10D040022E5C8 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		2977207327B2A4000022E5C8 /* GamesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesTableViewController.swift; sourceTree = "<group>"; };
@@ -52,7 +50,7 @@
 		2958DF9427B3D93E008D63F7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				2958DF9227B3D937008D63F7 /* SuperheroCollectionViewCell.swift */,
+				2958DF9227B3D937008D63F7 /* GameCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -71,7 +69,6 @@
 			isa = PBXGroup;
 			children = (
 				2977206627AC1F830022E5C8 /* Rawg.swift */,
-				2958DF9927B43E54008D63F7 /* Superhero.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -204,7 +201,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2958DF9327B3D937008D63F7 /* SuperheroCollectionViewCell.swift in Sources */,
+				2958DF9327B3D937008D63F7 /* GameCollectionViewCell.swift in Sources */,
 				29BE3FAC27AC04CC002E5F81 /* GameViewController.swift in Sources */,
 				2977207427B2A4000022E5C8 /* GamesTableViewController.swift in Sources */,
 				2958DF9127B3D8A5008D63F7 /* GamesCollectionViewController.swift in Sources */,
@@ -212,7 +209,6 @@
 				2977206D27B10D040022E5C8 /* NetworkManager.swift in Sources */,
 				29BE3FAA27AC04CC002E5F81 /* SceneDelegate.swift in Sources */,
 				2977206727AC1F830022E5C8 /* Rawg.swift in Sources */,
-				2958DF9A27B43E54008D63F7 /* Superhero.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

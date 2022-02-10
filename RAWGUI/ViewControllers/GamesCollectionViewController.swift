@@ -9,48 +9,34 @@ import UIKit
 
 class GamesCollectionViewController: UICollectionViewController {
     
-    private var superheroes: [Superhero] = []
+    private var games: [Game] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchSuperheroes(from: Links.superheoesUrl.rawValue)
+        fetchGames(from: Link.randomGames.rawValue)
     }
 
     // MARK: UICollectionViewDataSource
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return superheroes.count
+        return games.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "game", for: indexPath) as! SuperheroCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "game", for: indexPath) as! GameCollectionViewCell
         
-        let superheroe = superheroes[indexPath.item]
-        cell.configureItem(with: superheroe)
+        let game = games[indexPath.item]
+        cell.configureItem(with: game)
         
         return cell
     }
     
     // MARK: - Private methods
     private func fetchGames(from url: String) {
-        NetworkManager.shared.fetch(dataType: Superhero.self, from: url) { result in
+        NetworkManager.shared.fetch(dataType: Rawg.self, from: url) { result in
             switch result {
-            case .success(let gamesResponse):
-//                superheroes = gamesResponse
+            case .success(let games):
                 DispatchQueue.main.async {
-                    self.collectionView.reloadData()
-                }
-            case .failure(let error):
-                print(error)
-            }
-        }
-    }
-    
-    private func fetchSuperheroes(from url: String) {
-        NetworkManager.shared.fetch(dataType: [Superhero].self, from: url) { result in
-            switch result {
-            case .success(let gamesResponse):
-                self.superheroes = gamesResponse
-                DispatchQueue.main.async {
+                    self.games = games.results ?? []
                     self.collectionView.reloadData()
                 }
             case .failure(let error):
@@ -59,3 +45,4 @@ class GamesCollectionViewController: UICollectionViewController {
         }
     }
 }
+
