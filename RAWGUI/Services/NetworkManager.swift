@@ -49,8 +49,9 @@ class ImageManager {
     private init() {}
     
     func fetchImage(from url: String?) -> Data? {
-        guard let stringURL = url else { return nil }
-        guard let imageURL = URL(string: stringURL) else { return nil }
+        guard let url = url else { return nil }
+        let resizedImageString = url.replacingOccurrences(of: "media/games", with: "media/resize/640/-/games")
+        guard let imageURL = URL(string: resizedImageString) else { return nil }
         return try? Data(contentsOf: imageURL)
     }
 }

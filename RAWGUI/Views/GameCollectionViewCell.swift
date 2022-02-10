@@ -14,14 +14,8 @@ class GameCollectionViewCell: UICollectionViewCell {
     
     func configureItem(with game: Game) {
         gameNameLabel.text = game.name
-        
         DispatchQueue.global().async {
-            guard let imageString = game.backgroundImage else { return }
-            
-            let resizedImageString = imageString.replacingOccurrences(of: "media/games", with: "media/resize/640/-/games")
-            guard let imageURL = URL(string: resizedImageString) else { return }
-
-            guard let imageData = try? Data(contentsOf: imageURL) else { return }
+            guard let imageData = ImageManager.shared.fetchImage(from: game.backgroundImage) else { return }
             DispatchQueue.main.async {
                 self.gameImage.layer.cornerRadius = 15
                 self.gameImage.image = UIImage(data: imageData)
