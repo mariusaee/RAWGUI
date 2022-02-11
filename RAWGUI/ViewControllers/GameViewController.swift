@@ -9,7 +9,7 @@ import UIKit
 
 class GameViewController: UIViewController {
     
-    @IBOutlet var backgroundImage: UIImageView!
+    @IBOutlet var backgroundImage: GameImageView!
     @IBOutlet var gameNameLabel: UILabel!
     @IBOutlet var aboutGameTextView: UITextView!
     
