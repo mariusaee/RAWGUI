@@ -9,6 +9,7 @@ import UIKit
 
 class GameImageView: UIImageView {
     func fetchImage(from url: String) {
+
         guard let url = URL(string: url) else {
             image = UIImage(named: "defaultBackgroundImage")
             return
@@ -19,7 +20,7 @@ class GameImageView: UIImageView {
             return
         }
         
-        ImageManager.shared.fetchImage(from: url, with: .size640) { data, response in
+        ImageManager.shared.fetchImage(from: url) { data, response in
             self.image = UIImage(data: data )
             self.saveDataToCache(data: data, and: response)
         }
@@ -29,12 +30,14 @@ class GameImageView: UIImageView {
         let urlRequest = URLRequest(url: url)
         let cachedUrlResponse = CachedURLResponse(response: response, data: data)
         URLCache.shared.storeCachedResponse(cachedUrlResponse, for: urlRequest)
+        print("IMAGE SAVED")
     }
     
     private func getCachedImage(from url: URL) -> UIImage? {
         let urlRequest = URLRequest(url: url)
         if let cachedResponse = URLCache.shared.cachedResponse(for: urlRequest) {
-            return UIImage(data: cachedResponse.data )
+            print("IMAGE GOTED with URL: \(url)")
+            return UIImage(data: cachedResponse.data)
         }
         return nil
     }

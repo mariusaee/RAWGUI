@@ -55,22 +55,14 @@ class ImageManager {
     
     private init() {}
     
-    func fetchImage(from url: URL, with resizeResolution: ResizeResolution, completion: @escaping(Data, URLResponse) -> Void) {
-        let stringUrl = url.path
-        let resizedImageString = stringUrl.replacingOccurrences(
-            of: "media/games",
-            with: "media/resize/\(resizeResolution.rawValue)/-/games"
-        )
-        
-        guard let imageURL = URL(string: resizedImageString) else { return }
-        
-        URLSession.shared.dataTask(with: imageURL) { data, response, error in
+    func fetchImage(from url: URL, completion: @escaping(Data, URLResponse) -> Void) {        
+        URLSession.shared.dataTask(with: url) { data, response, error in
             guard let data = data, let response = response else {
                 print(error?.localizedDescription ?? "No error localized description")
                 return
             }
             
-            guard imageURL == response.url else { return }
+            guard url == response.url else { return }
             
             DispatchQueue.main.async {
                 completion(data, response)
