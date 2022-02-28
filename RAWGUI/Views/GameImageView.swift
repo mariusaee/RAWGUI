@@ -30,13 +30,11 @@ class GameImageView: UIImageView {
         let urlRequest = URLRequest(url: url)
         let cachedUrlResponse = CachedURLResponse(response: response, data: data)
         URLCache.shared.storeCachedResponse(cachedUrlResponse, for: urlRequest)
-        print("IMAGE SAVED")
     }
     
     private func getCachedImage(from url: URL) -> UIImage? {
         let urlRequest = URLRequest(url: url)
         if let cachedResponse = URLCache.shared.cachedResponse(for: urlRequest) {
-            print("IMAGE GOTED with URL: \(url)")
             return UIImage(data: cachedResponse.data)
         }
         return nil

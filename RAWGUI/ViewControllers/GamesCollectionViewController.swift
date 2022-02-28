@@ -10,17 +10,17 @@ import UIKit
 class GamesCollectionViewController: UICollectionViewController {
     
     private var games: [Game] = []
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchGames(from: Link.allGames.rawValue)
     }
-
+    
     // MARK: UICollectionViewDataSource
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return games.count
     }
-
+    
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "game", for: indexPath) as! GameCollectionViewCell
         
