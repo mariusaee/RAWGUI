@@ -79,7 +79,7 @@ class GamesCollectionViewController: UICollectionViewController {
         
         guard let indexPaths = collectionView.indexPathsForSelectedItems else { return }
         guard let selectedGameIndex = indexPaths.first?.item else { return }
-        let game = rawg?.results[selectedGameIndex] ?? Game(id: 0, name: "no game", descriptionRaw: "no", backgroundImage: "defaultBackgroundImage")
+        let game = games[selectedGameIndex]
         
         gameVC.game = game
     }
