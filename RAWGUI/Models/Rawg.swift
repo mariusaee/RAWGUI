@@ -6,7 +6,8 @@
 //
 
 struct Rawg: Codable {
-    let results: [Game]?
+    let results: [Game]
+    let next: String
 }
 
 struct Game: Codable {

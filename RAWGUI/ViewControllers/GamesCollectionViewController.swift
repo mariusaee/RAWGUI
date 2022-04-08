@@ -9,7 +9,7 @@ import UIKit
 
 class GamesCollectionViewController: UICollectionViewController {
     
-    private var games: [Game] = []
+    private var rawg: Rawg?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,13 +18,13 @@ class GamesCollectionViewController: UICollectionViewController {
     
     // MARK: UICollectionViewDataSource
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return games.count
+        return rawg?.results.count ?? 0
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "game", for: indexPath) as! GameCollectionViewCell
         
-        let game = games[indexPath.item]
+        let game = rawg?.results[indexPath.item] ?? Game(id: 0, name: "no game", descriptionRaw: "no", backgroundImage: "defaultBackgroundImage")
         cell.configureItem(with: game)
         
         return cell
@@ -34,9 +34,9 @@ class GamesCollectionViewController: UICollectionViewController {
     private func fetchGames(from url: String) {
         NetworkManager.shared.fetch(dataType: Rawg.self, from: url) { result in
             switch result {
-            case .success(let games):
+            case .success(let rawg):
                 DispatchQueue.main.async {
-                    self.games = games.results ?? []
+                    self.rawg = rawg
                     self.collectionView.reloadData()
                 }
             case .failure(let error):
@@ -51,7 +51,7 @@ class GamesCollectionViewController: UICollectionViewController {
         
         guard let indexPaths = collectionView.indexPathsForSelectedItems else { return }
         guard let selectedGameIndex = indexPaths.first?.item else { return }
-        let game = games[selectedGameIndex]
+        let game = rawg?.results[selectedGameIndex] ?? Game(id: 0, name: "no game", descriptionRaw: "no", backgroundImage: "defaultBackgroundImage")
         
         gameVC.game = game
     }
