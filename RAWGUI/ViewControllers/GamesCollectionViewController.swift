@@ -10,6 +10,7 @@ import UIKit
 class GamesCollectionViewController: UICollectionViewController {
     
     private var rawg: Rawg?
+    private var games: [Game] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,16 +19,26 @@ class GamesCollectionViewController: UICollectionViewController {
     
     // MARK: UICollectionViewDataSource
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return rawg?.results.count ?? 0
+        return games.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "game", for: indexPath) as! GameCollectionViewCell
         
-        let game = rawg?.results[indexPath.item] ?? Game(id: 0, name: "no game", descriptionRaw: "no", backgroundImage: "defaultBackgroundImage")
+        let game = games[indexPath.item]
         cell.configureItem(with: game)
         
         return cell
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        let lastElement = games.count - 1
+        
+        if indexPath.item == lastElement {
+            guard let url = rawg?.next else { return }
+            loadMoreGames(from: url)
+            print("Bottom here")
+        }
     }
     
     // MARK: - Private methods
@@ -37,6 +48,7 @@ class GamesCollectionViewController: UICollectionViewController {
             case .success(let rawg):
                 DispatchQueue.main.async {
                     self.rawg = rawg
+                    self.games = rawg.results
                     self.collectionView.reloadData()
                 }
             case .failure(let error):
@@ -44,6 +56,22 @@ class GamesCollectionViewController: UICollectionViewController {
             }
         }
     }
+    
+    private func loadMoreGames(from url: String) {
+        NetworkManager.shared.fetch(dataType: Rawg.self, from: url) { result in
+            switch result {
+            case .success(let rawg):
+                DispatchQueue.main.async {
+                    self.rawg = rawg
+                    self.games += rawg.results
+                    self.collectionView.reloadData()
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
