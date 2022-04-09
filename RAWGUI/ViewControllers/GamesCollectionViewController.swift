@@ -9,9 +9,11 @@ import UIKit
 
 class GamesCollectionViewController: UICollectionViewController {
     
+    //MARK: Private properties
     private var rawg: Rawg?
     private var games: [Game] = []
     
+    // MARK: - UIViewController Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchGames(from: Link.allGames.rawValue)
@@ -32,7 +34,7 @@ class GamesCollectionViewController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        let lastElement = games.count - 1
+        let lastElement = games.count - 2
         
         if indexPath.item == lastElement {
             guard let url = rawg?.next else { return }
@@ -71,7 +73,6 @@ class GamesCollectionViewController: UICollectionViewController {
             }
         }
     }
-    
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
