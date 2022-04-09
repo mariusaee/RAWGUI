@@ -41,7 +41,7 @@ class GamesCollectionViewController: UICollectionViewController {
         
         if indexPath.item == lastElement {
             guard let url = rawg?.next else { return }
-            loadMoreGames(from: url)
+            fetchGames(from: url)
             print("Bottom here")
             print(url)
         }
@@ -61,21 +61,6 @@ class GamesCollectionViewController: UICollectionViewController {
             case .success(let rawg):
                 DispatchQueue.main.async {
                     self.rawg = rawg
-                    self.games = rawg.results
-                    self.collectionView.reloadData()
-                }
-            case .failure(let error):
-                print(error)
-            }
-        }
-    }
-    
-    private func loadMoreGames(from url: String) {
-        NetworkManager.shared.fetch(dataType: Rawg.self, from: url) { result in
-            switch result {
-            case .success(let rawg):
-                DispatchQueue.main.async {
-                    self.rawg = rawg
                     self.games += rawg.results
                     self.collectionView.reloadData()
                 }
@@ -84,7 +69,7 @@ class GamesCollectionViewController: UICollectionViewController {
             }
         }
     }
-    
+        
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let gameVC = segue.destination as? GameViewController else { return }
@@ -99,8 +84,7 @@ class GamesCollectionViewController: UICollectionViewController {
 
 extension GamesCollectionViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        //        fetchGames(from: Link.search.rawValue + searchText.replacingOccurrences(of: " ", with: "+"))
-        
+        games = []
         timer?.invalidate()
         timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { _ in
             self.fetchGames(from: Link.search.rawValue + searchText.replacingOccurrences(of: " ", with: "+"))
