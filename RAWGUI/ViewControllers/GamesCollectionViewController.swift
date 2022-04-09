@@ -12,11 +12,14 @@ class GamesCollectionViewController: UICollectionViewController {
     //MARK: Private properties
     private var rawg: Rawg?
     private var games: [Game] = []
+    private var timer: Timer?
+    private let searchController = UISearchController()
     
     // MARK: - UIViewController Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchGames(from: Link.allGames.rawValue)
+        setupSearchController()
     }
     
     // MARK: UICollectionViewDataSource
@@ -40,12 +43,20 @@ class GamesCollectionViewController: UICollectionViewController {
             guard let url = rawg?.next else { return }
             loadMoreGames(from: url)
             print("Bottom here")
+            print(url)
         }
     }
     
     // MARK: - Private methods
+    private func setupSearchController() {
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
+        searchController.searchBar.delegate = self
+    }
+    
     private func fetchGames(from url: String) {
         NetworkManager.shared.fetch(dataType: Rawg.self, from: url) { result in
+            print(url)
             switch result {
             case .success(let rawg):
                 DispatchQueue.main.async {
@@ -86,3 +97,13 @@ class GamesCollectionViewController: UICollectionViewController {
     }
 }
 
+extension GamesCollectionViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        //        fetchGames(from: Link.search.rawValue + searchText.replacingOccurrences(of: " ", with: "+"))
+        
+        timer?.invalidate()
+        timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { _ in
+            self.fetchGames(from: Link.search.rawValue + searchText.replacingOccurrences(of: " ", with: "+"))
+        })
+    }
+}
