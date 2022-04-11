@@ -91,6 +91,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="428" height="43.666667938232422"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="bc4-0s-Iex"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -99,9 +102,6 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Games" id="rjO-Wb-Jw5"/>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="show" id="rCb-Kh-4iP"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QWQ-uA-lVd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -196,7 +196,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="rCb-Kh-4iP"/>
+        <segue reference="bc4-0s-Iex"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="defaultBackgroundImage" width="800" height="600"/>
