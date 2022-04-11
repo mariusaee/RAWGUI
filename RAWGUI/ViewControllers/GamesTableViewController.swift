@@ -64,6 +64,7 @@ class GamesTableViewController: UITableViewController {
         gameVC.game = game
     }
 }
+
 // MARK: - Table view data source methods
 extension GamesTableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
