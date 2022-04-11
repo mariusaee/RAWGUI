@@ -18,33 +18,18 @@ class GamesTableViewController: UITableViewController {
     // MARK: - UIViewController Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchGames(from: Link.allGames.rawValue)
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        setupNavigationBar()
         setupSearchController()
-    }
-    
-    // MARK: - Table view data source
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return games.count
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        
-        cell.textLabel?.text = games[indexPath.row].name
-        
-        return cell
-    }
-    
-    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        let lastElement = games.count - 2
-        
-        if indexPath.item == lastElement {
-            guard let url = rawg?.next else { return }
-            fetchGames(from: url)
-        }
+        fetchGames(from: Link.allGames.rawValue)
     }
     
     // MARK: - Private methods
+    private func setupNavigationBar() {
+        title = "Games"
+        navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
     private func setupSearchController() {
         navigationItem.searchController = searchController
         searchController.searchBar.delegate = self
@@ -77,6 +62,30 @@ class GamesTableViewController: UITableViewController {
         let game = games[selectedGameIndex]
         
         gameVC.game = game
+    }
+}
+
+extension GamesTableViewController {
+    // MARK: - Table view data source
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return games.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        
+        cell.textLabel?.text = games[indexPath.row].name
+        
+        return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let lastElement = games.count - 2
+        
+        if indexPath.item == lastElement {
+            guard let url = rawg?.next else { return }
+            fetchGames(from: url)
+        }
     }
 }
 
