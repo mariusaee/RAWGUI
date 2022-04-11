@@ -50,13 +50,14 @@ class GamesCollectionViewController: UICollectionViewController {
     // MARK: - Private methods
     private func setupSearchController() {
         navigationItem.searchController = searchController
-        navigationItem.hidesSearchBarWhenScrolling = false
-        searchController.searchBar.delegate = self
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search games"
+        definesPresentationContext = true
     }
     
     private func fetchGames(from url: String) {
         NetworkManager.shared.fetch(dataType: Rawg.self, from: url) { result in
-            print(url)
             switch result {
             case .success(let rawg):
                 DispatchQueue.main.async {
@@ -82,12 +83,13 @@ class GamesCollectionViewController: UICollectionViewController {
     }
 }
 
-extension GamesCollectionViewController: UISearchBarDelegate {
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+extension GamesCollectionViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let searchedText = searchController.searchBar.text else { return }
         games = []
         timer?.invalidate()
-        timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { _ in
-            self.fetchGames(from: Link.search.rawValue + searchText.replacingOccurrences(of: " ", with: "+"))
-        })
+        timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { _ in
+            self.fetchGames(from: Link.search.rawValue + searchedText.replacingOccurrences(of: " ", with: "+"))
+        }
     }
 }
