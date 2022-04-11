@@ -50,7 +50,7 @@ class GamesCollectionViewController: UICollectionViewController {
     // MARK: - Private methods
     private func setupSearchController() {
         navigationItem.searchController = searchController
-        searchController.searchResultsUpdater = self
+        searchController.searchBar.delegate = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search games"
         definesPresentationContext = true
@@ -83,14 +83,13 @@ class GamesCollectionViewController: UICollectionViewController {
     }
 }
 
-extension GamesCollectionViewController: UISearchResultsUpdating {
-    func updateSearchResults(for searchController: UISearchController) {
-        guard let searchedText = searchController.searchBar.text else { return }
+extension GamesCollectionViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         games = []
         timer?.invalidate()
-        timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { _ in
-            self.fetchGames(from: Link.search.rawValue + searchedText.replacingOccurrences(of: " ", with: "+"))
-        }
+        timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { _ in
+            self.fetchGames(from: Link.search.rawValue + searchText.replacingOccurrences(of: " ", with: "+"))
+        })
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
