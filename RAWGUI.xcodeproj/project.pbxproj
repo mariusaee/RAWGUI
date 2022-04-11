@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		29034286280477170034B4E8 /* GamesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29034285280477170034B4E8 /* GamesTableViewController.swift */; };
 		2958DF9127B3D8A5008D63F7 /* GamesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2958DF9027B3D8A5008D63F7 /* GamesCollectionViewController.swift */; };
 		2958DF9327B3D937008D63F7 /* GameCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2958DF9227B3D937008D63F7 /* GameCollectionViewCell.swift */; };
 		2958DF9C27B6755E008D63F7 /* GameImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2958DF9B27B6755E008D63F7 /* GameImageView.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		29034285280477170034B4E8 /* GamesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesTableViewController.swift; sourceTree = "<group>"; };
 		2958DF9027B3D8A5008D63F7 /* GamesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesCollectionViewController.swift; sourceTree = "<group>"; };
 		2958DF9227B3D937008D63F7 /* GameCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCollectionViewCell.swift; sourceTree = "<group>"; };
 		2958DF9B27B6755E008D63F7 /* GameImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameImageView.swift; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 			children = (
 				2958DF9027B3D8A5008D63F7 /* GamesCollectionViewController.swift */,
 				29BE3FAB27AC04CC002E5F81 /* GameViewController.swift */,
+				29034285280477170034B4E8 /* GamesTableViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -205,6 +208,7 @@
 				29BE3FAC27AC04CC002E5F81 /* GameViewController.swift in Sources */,
 				2958DF9127B3D8A5008D63F7 /* GamesCollectionViewController.swift in Sources */,
 				29BE3FA827AC04CC002E5F81 /* AppDelegate.swift in Sources */,
+				29034286280477170034B4E8 /* GamesTableViewController.swift in Sources */,
 				2977206D27B10D040022E5C8 /* NetworkManager.swift in Sources */,
 				29BE3FAA27AC04CC002E5F81 /* SceneDelegate.swift in Sources */,
 				2958DF9C27B6755E008D63F7 /* GameImageView.swift in Sources */,

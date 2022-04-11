@@ -15,6 +15,7 @@ class GameCollectionViewCell: UICollectionViewCell {
     func configureItem(with game: Game) {
         gameNameLabel.text = game.name
         gameImage.fetchImage(from: game.newImage)
+        super.layer.cornerRadius = 20
     }
 }
 

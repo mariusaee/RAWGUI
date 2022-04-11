@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wXc-Gi-Qgp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7Kv-0A-ula">
     <device id="retina6_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
-        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -27,7 +26,7 @@
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="game" id="XZK-Uy-4gz" customClass="GameCollectionViewCell" customModule="RAWGUI" customModuleProvider="target">
                                 <rect key="frame" x="79" y="0.0" width="270" height="180"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="0bz-lR-oHs">
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                     <rect key="frame" x="0.0" y="0.0" width="270" height="180"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
@@ -49,13 +48,14 @@
                                             </subviews>
                                         </stackView>
                                     </subviews>
-                                    <constraints>
-                                        <constraint firstAttribute="bottom" secondItem="rgT-Jn-fgO" secondAttribute="bottom" id="apk-JS-9bu"/>
-                                        <constraint firstAttribute="trailing" secondItem="rgT-Jn-fgO" secondAttribute="trailing" id="uej-zc-yJQ"/>
-                                        <constraint firstItem="rgT-Jn-fgO" firstAttribute="leading" secondItem="0bz-lR-oHs" secondAttribute="leading" id="uix-f9-tEo"/>
-                                        <constraint firstItem="rgT-Jn-fgO" firstAttribute="top" secondItem="0bz-lR-oHs" secondAttribute="top" id="wD5-ZC-fk1"/>
-                                    </constraints>
-                                </collectionViewCellContentView>
+                                </view>
+                                <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="rgT-Jn-fgO" secondAttribute="bottom" id="apk-JS-9bu"/>
+                                    <constraint firstAttribute="trailing" secondItem="rgT-Jn-fgO" secondAttribute="trailing" id="uej-zc-yJQ"/>
+                                    <constraint firstItem="rgT-Jn-fgO" firstAttribute="leading" secondItem="XZK-Uy-4gz" secondAttribute="leading" id="uix-f9-tEo"/>
+                                    <constraint firstItem="rgT-Jn-fgO" firstAttribute="top" secondItem="XZK-Uy-4gz" secondAttribute="top" id="wD5-ZC-fk1"/>
+                                </constraints>
                                 <size key="customSize" width="270" height="180"/>
                                 <connections>
                                     <outlet property="gameImage" destination="pYP-60-Z0k" id="xUr-2h-PZX"/>
@@ -74,6 +74,54 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HRU-wL-1Fw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="143" y="-33"/>
+        </scene>
+        <!--Games-->
+        <scene sceneID="NRB-yY-eSs">
+            <objects>
+                <tableViewController id="Rqc-hC-xdX" customClass="GamesTableViewController" customModule="RAWGUI" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="VHb-J7-AA8">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="QrJ-cE-aot">
+                                <rect key="frame" x="0.0" y="44.666666030883789" width="428" height="43.666667938232422"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QrJ-cE-aot" id="FAz-eO-jCO">
+                                    <rect key="frame" x="0.0" y="0.0" width="428" height="43.666667938232422"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Rqc-hC-xdX" id="Yoa-MU-XAR"/>
+                            <outlet property="delegate" destination="Rqc-hC-xdX" id="fAS-Gw-vd8"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Games" id="rjO-Wb-Jw5"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="show" id="rCb-Kh-4iP"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QWQ-uA-lVd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="143" y="636"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="AXr-4W-2Be">
+            <objects>
+                <navigationController id="7Kv-0A-ula" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="aCF-BC-rvQ">
+                        <rect key="frame" x="0.0" y="44" width="428" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Rqc-hC-xdX" kind="relationship" relationship="rootViewController" id="ItH-Rk-nHK"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="px6-cz-ENC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-625" y="636"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -147,6 +195,9 @@
             <point key="canvasLocation" x="-624" y="-33"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="rCb-Kh-4iP"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="defaultBackgroundImage" width="800" height="600"/>
         <systemColor name="labelColor">
@@ -154,6 +205,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
