@@ -90,4 +90,9 @@ extension GamesCollectionViewController: UISearchBarDelegate {
             self.fetchGames(from: Link.search.rawValue + searchText.replacingOccurrences(of: " ", with: "+"))
         })
     }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        games = []
+        fetchGames(from: Link.allGames.rawValue)
+    }
 }
