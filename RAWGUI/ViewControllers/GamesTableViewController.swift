@@ -64,9 +64,8 @@ class GamesTableViewController: UITableViewController {
         gameVC.game = game
     }
 }
-
+// MARK: - Table view data source methods
 extension GamesTableViewController {
-    // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return games.count
     }
@@ -89,7 +88,7 @@ extension GamesTableViewController {
     }
 }
 
-// MARK: - UISearchBarDelegate
+// MARK: - UISearchBarDelegate methods
 extension GamesTableViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         games = []
