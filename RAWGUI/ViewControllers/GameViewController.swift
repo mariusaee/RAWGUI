@@ -32,8 +32,7 @@ class GameViewController: UIViewController {
             gameImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             gameImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             gameImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-            gameImageView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.35)
-
+            gameImageView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.30)
         ])
     }
 }
