@@ -89,6 +89,13 @@ extension GamesTableViewController {
             fetchGames(from: url)
         }
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let gameVC = GameViewController()
+        gameVC.game = games[indexPath.row]
+        navigationController?.pushViewController(gameVC, animated: true)
+    }
+    
 }
 
 // MARK: - UISearchBarDelegate methods
