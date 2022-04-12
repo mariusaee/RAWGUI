@@ -14,27 +14,25 @@ class GameViewController: UIViewController {
     private lazy var gameImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "defaultBackgroundImage")
-//        imageView.contentMode = .scaleAspectFit
-        imageView.frame.size.height = 10
-        imageView.frame.size.width = 10
-
+        imageView.contentMode = .scaleAspectFit
+        imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = .systemBackground
         navigationItem.title = game?.name
         view.addSubview(gameImageView)
         setupConstraints()
     }
     
     private func setupConstraints() {
-        gameImageView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            gameImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0),
+            gameImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             gameImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            gameImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16)
+            gameImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            gameImageView.heightAnchor.constraint(equalToConstant: 250)
         ])
     }
 }
