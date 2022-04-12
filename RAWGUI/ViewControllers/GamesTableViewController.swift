@@ -55,7 +55,7 @@ class GamesTableViewController: UITableViewController {
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let gameVC = segue.destination as? GameViewController else { return }
+        guard let gameVC = segue.destination as? OldGameViewController else { return }
         
         guard let indexPaths = tableView.indexPathsForSelectedRows else { return }
         guard let selectedGameIndex = indexPaths.first?.item else { return }
@@ -73,9 +73,11 @@ extension GamesTableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        var content = cell.defaultContentConfiguration()
         
-        cell.textLabel?.text = games[indexPath.row].name
+        content.text = games[indexPath.row].name
         
+        cell.contentConfiguration = content
         return cell
     }
     

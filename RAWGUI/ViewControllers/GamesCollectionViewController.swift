@@ -73,7 +73,7 @@ class GamesCollectionViewController: UICollectionViewController {
         
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let gameVC = segue.destination as? GameViewController else { return }
+        guard let gameVC = segue.destination as? OldGameViewController else { return }
         
         guard let indexPaths = collectionView.indexPathsForSelectedItems else { return }
         guard let selectedGameIndex = indexPaths.first?.item else { return }
