@@ -30,8 +30,7 @@ class GameViewController: UIViewController {
     private func setupConstraints() {
         NSLayoutConstraint.activate([
             gameImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            gameImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            gameImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            gameImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             gameImageView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.30)
         ])
     }
