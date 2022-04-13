@@ -89,7 +89,8 @@ class GameViewController: UIViewController {
             
             gameImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             gameImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
-            gameImageView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.43),
+            gameImageView.heightAnchor.constraint(equalToConstant: 200),
+//            gameImageView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.43),
             
             descriptionLabel.topAnchor.constraint(equalTo: gameImageView.bottomAnchor, constant: 10),
             descriptionLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
