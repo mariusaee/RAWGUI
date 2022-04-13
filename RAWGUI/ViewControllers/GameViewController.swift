@@ -66,13 +66,9 @@ class GameViewController: UIViewController {
             contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
             contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
             
-//            gameImageView.topAnchor.constraint(equalTo: contentView.topAnchor),
-//            gameImageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-//            gameImageView.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 0.30),
+            gameImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             gameImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
-            gameImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
-            gameImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
-            gameImageView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.30),
+            gameImageView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.43),
 
             descriptionLabel.topAnchor.constraint(equalTo: gameImageView.bottomAnchor, constant: 10),
             descriptionLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
