@@ -29,7 +29,7 @@ class OldGameViewController: UIViewController {
             switch result {
             case .success(let game):
                 self.game = game
-                backgroundImage.fetchImage(from: game.newImage)
+//                backgroundImage.fetchImage(from: game.newImage)
                 aboutGameTextView.text = game.descriptionRaw
             case .failure(let error):
                 print(error)

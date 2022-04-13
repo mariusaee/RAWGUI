@@ -28,7 +28,7 @@ class GameViewController: UIViewController {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = UIImage(named: "defaultBackgroundImage")
         imageView.contentMode = .scaleAspectFit
-        if let imageUrl = game?.newImage {
+        if let imageUrl = game?.resizedImage {
             imageView.fetchImage(from: imageUrl)
         }
         return imageView
