@@ -11,11 +11,18 @@ class GameViewController: UIViewController {
 
     var game: Game?
     
+    private lazy var scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        
+        return scrollView
+    }()
+    
     private lazy var gameImageView: UIImageView = {
         let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = UIImage(named: "defaultBackgroundImage")
         imageView.contentMode = .scaleAspectFit
-        imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
 
@@ -23,15 +30,22 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         navigationItem.title = game?.name
-        view.addSubview(gameImageView)
+        
+        view.addSubview(scrollView)
+        scrollView.addSubview(gameImageView)
         setupConstraints()
     }
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            gameImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            gameImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            gameImageView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.30)
+            scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            
+            gameImageView.topAnchor.constraint(equalTo: scrollView.safeAreaLayoutGuide.topAnchor),
+            gameImageView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+            gameImageView.heightAnchor.constraint(equalTo: scrollView.heightAnchor, multiplier: 0.30)
         ])
     }
 }
