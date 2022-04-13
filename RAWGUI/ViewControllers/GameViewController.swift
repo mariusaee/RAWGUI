@@ -41,7 +41,7 @@ class GameViewController: UIViewController {
         descriptionLabel.numberOfLines = 0
         descriptionLabel.lineBreakMode = .byWordWrapping
         if let gameID = game?.id {
-            let url = "https://api.rawg.io/api/games/\(gameID)?key=e29e1df3581e4b07b4b7ea370b4cda67"
+            let url = "\(Link.game.rawValue)\(gameID)?key=e29e1df3581e4b07b4b7ea370b4cda67"
             fetchGame(from: url)
         }
         return descriptionLabel

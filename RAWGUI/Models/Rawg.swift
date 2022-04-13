@@ -26,4 +26,5 @@ enum Link: String {
     case zelda = "https://api.rawg.io/api/games/22511?key=e29e1df3581e4b07b4b7ea370b4cda67"
     case allGames = "https://api.rawg.io/api/games?key=e29e1df3581e4b07b4b7ea370b4cda67&page=1"
     case search = "https://api.rawg.io/api/games?key=e29e1df3581e4b07b4b7ea370b4cda67&search="
+    case game = "https://api.rawg.io/api/games/"
 }
