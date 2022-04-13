@@ -40,7 +40,6 @@ class GameViewController: UIViewController {
         descriptionLabel.sizeToFit()
         descriptionLabel.numberOfLines = 0
         descriptionLabel.lineBreakMode = .byWordWrapping
-        descriptionLabel.text = "text"
         if let gameID = game?.id {
             let url = "https://api.rawg.io/api/games/\(gameID)?key=e29e1df3581e4b07b4b7ea370b4cda67"
             fetchGame(from: url)
@@ -90,7 +89,6 @@ class GameViewController: UIViewController {
             gameImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             gameImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
             gameImageView.heightAnchor.constraint(equalToConstant: 200),
-//            gameImageView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.43),
             
             descriptionLabel.topAnchor.constraint(equalTo: gameImageView.bottomAnchor, constant: 10),
             descriptionLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
