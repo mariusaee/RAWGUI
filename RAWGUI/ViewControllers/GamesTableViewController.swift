@@ -42,7 +42,6 @@ class GamesTableViewController: UITableViewController {
         NetworkManager.shared.fetch(dataType: Rawg.self, from: url) { result in
             switch result {
             case .success(let rawg):
-                print(Thread.current)
                 self.rawg = rawg
                 self.games += rawg.results
                 self.tableView.reloadData()
