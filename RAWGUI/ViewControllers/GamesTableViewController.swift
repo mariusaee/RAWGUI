@@ -50,17 +50,6 @@ class GamesTableViewController: UITableViewController {
             }
         }
     }
-    
-    // MARK: - Navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let gameVC = segue.destination as? OldGameViewController else { return }
-        
-        guard let indexPaths = tableView.indexPathsForSelectedRows else { return }
-        guard let selectedGameIndex = indexPaths.first?.item else { return }
-        let game = games[selectedGameIndex]
-        
-        gameVC.game = game
-    }
 }
 
 // MARK: - Table view data source methods
