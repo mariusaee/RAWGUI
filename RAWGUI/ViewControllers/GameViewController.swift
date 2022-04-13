@@ -8,7 +8,7 @@
 import UIKit
 
 class GameViewController: UIViewController {
-
+    
     var game: Game?
     
     private lazy var scrollView: UIScrollView = {
@@ -23,11 +23,14 @@ class GameViewController: UIViewController {
         return contentView
     }()
     
-    private lazy var gameImageView: UIImageView = {
-        let imageView = UIImageView()
+    private lazy var gameImageView: GameImageView = {
+        let imageView = GameImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = UIImage(named: "defaultBackgroundImage")
         imageView.contentMode = .scaleAspectFit
+        if let imageUrl = game?.newImage {
+            imageView.fetchImage(from: imageUrl)
+        }
         return imageView
     }()
     
@@ -37,21 +40,23 @@ class GameViewController: UIViewController {
         descriptionLabel.sizeToFit()
         descriptionLabel.numberOfLines = 0
         descriptionLabel.lineBreakMode = .byWordWrapping
-        descriptionLabel.text = "Hi! In this tutorial, we will learn how to create a UIScrollView programmatically that contains two UILabel and adapt its size based on the size of the views that it contains.In this tutorial, we will learn how to create a UIScrollView programmatically that contains two UILabel and adapt its size based on the size of the views that it contains.In this tutorial, we will learn how to create a UIScrollView programmatically that contains two UILabel and adapt its size based on the size of the views that it contains.In this tutorial, we will learn how to create a UIScrollView programmatically that contains two UILabel and adapt its size based on the size of the views that it contains.In this tutorial, we will learn how to create a UIScrollView programmatically that contains two UILabel and adapt its size based on the size of the views that it contains.In this tutorial, we will learn how to create a UIScrollView programmatically that contains two UILabel and adapt its size based on the size of the views that it contains.In this tutorial, we will learn how to create a UIScrollView programmatically that contains two UILabel and adapt its size based on the size of the views that it contains.Hi! In this tutorial, we will learn how to create a UIScrollView programmatically that contains two UILabel and adapt its size based on the size of the views that it contains.In this tutorial, we will learn how to create a UIScrollView programmatically that contains two UILabel and adapt its size based on the size of the views that it contains.In this tutorial, we will learn how to create a UIScrollView programmatically that contains two UILabel and adapt its size based on the size of the views that it contains.In this tutorial, we will learn how to create a UIScrollView programmatically that contains two UILabel and adapt its size based on the size of the views that it contains.In this tutorial, we will learn how to create a UIScrollView programmatically that contains two UILabel and adapt its size based on the size of the views that it contains.In this tutorial, we will learn how to create a UIScrollView programmatically that contains two UILabel and adapt its size based on the size of the views that it contains.In this tutorial, we will learn how to create a UIScrollView programmatically that contains two UILabel and adapt its size based on the size of the views that it contains."
+        descriptionLabel.text = "test"
         return descriptionLabel
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         navigationItem.title = game?.name
-        
         view.addSubview(scrollView)
+        configureViews()
+        setupConstraints()
+    }
+    
+    private func configureViews() {
         scrollView.addSubview(contentView)
         contentView.addSubview(gameImageView)
         contentView.addSubview(descriptionLabel)
-        
-        setupConstraints()
     }
     
     private func setupConstraints() {
@@ -69,7 +74,7 @@ class GameViewController: UIViewController {
             gameImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             gameImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
             gameImageView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.43),
-
+            
             descriptionLabel.topAnchor.constraint(equalTo: gameImageView.bottomAnchor, constant: 10),
             descriptionLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
             descriptionLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
