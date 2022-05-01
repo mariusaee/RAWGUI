@@ -110,12 +110,12 @@
 		29BE3FA627AC04CC002E5F81 /* RAWGUI */ = {
 			isa = PBXGroup;
 			children = (
-				2977207227B2A3620022E5C8 /* SupportingFiles */,
-				2977206827AC218C0022E5C8 /* Models */,
 				2977206527AC1F490022E5C8 /* ViewControllers */,
-				2977206B27B10CEB0022E5C8 /* Services */,
+				2977206827AC218C0022E5C8 /* Models */,
 				2958DF9427B3D93E008D63F7 /* Views */,
+				2977206B27B10CEB0022E5C8 /* Services */,
 				2977207027B29E6B0022E5C8 /* Storyboards */,
+				2977207227B2A3620022E5C8 /* SupportingFiles */,
 				29BE3FB027AC04D3002E5F81 /* Assets.xcassets */,
 			);
 			path = RAWGUI;
