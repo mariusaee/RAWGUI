@@ -78,6 +78,7 @@ extension GamesTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         let gameVC = GameViewController()
         gameVC.game = games[indexPath.row]
         navigationController?.pushViewController(gameVC, animated: true)
