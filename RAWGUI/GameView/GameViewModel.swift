@@ -12,4 +12,14 @@ protocol GameViewModelProtocol {
     init(game: Game)
 }
 
-
+class GameViewModel: GameViewModelProtocol {
+    var gameDescription: String {
+        game.descriptionRaw ?? "No game description"
+    }
+    
+    private let game: Game
+    
+    required init(game: Game) {
+        self.game = game
+    }
+}
