@@ -1,5 +1,5 @@
 //
-//  GamesTableViewController.swift
+//  GamesListViewController.swift
 //  RAWGUI
 //
 //  Created by Marius Malyshev on 11.04.2022.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GamesTableViewController: UITableViewController {
+class GamesListViewController: UITableViewController {
     
     //MARK: - Private properties
     private var rawg: Rawg?
@@ -53,7 +53,7 @@ class GamesTableViewController: UITableViewController {
 }
 
 // MARK: - Table view data source methods
-extension GamesTableViewController {
+extension GamesListViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return games.count
     }
@@ -79,7 +79,7 @@ extension GamesTableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let gameVC = GameViewController()
+        let gameVC = GameDetailsViewController()
         gameVC.game = games[indexPath.row]
         navigationController?.pushViewController(gameVC, animated: true)
     }
@@ -87,7 +87,7 @@ extension GamesTableViewController {
 }
 
 // MARK: - UISearchBarDelegate methods
-extension GamesTableViewController: UISearchBarDelegate {
+extension GamesListViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         games = []
         timer?.invalidate()

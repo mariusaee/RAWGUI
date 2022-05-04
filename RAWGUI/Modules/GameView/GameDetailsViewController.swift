@@ -1,5 +1,5 @@
 //
-//  GameViewController.swift
+//  GameDetailsViewController.swift
 //  RAWGUI
 //
 //  Created by Marius Malyshev on 12.04.2022.
@@ -7,10 +7,10 @@
 
 import UIKit
 
-class GameViewController: UIViewController {
+class GameDetailsViewController: UIViewController {
     
     var game: Game!
-    var gameViewModel: GameViewModelProtocol! {
+    var gameViewModel: GameDetailsViewModelProtocol! {
         didSet {
             self.navigationItem.title = gameViewModel.gameName
             self.descriptionLabel.text = gameViewModel.gameDescription
@@ -54,7 +54,7 @@ class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        gameViewModel = GameViewModel(game: game)
+        gameViewModel = GameDetailsViewModel(game: game)
         view.backgroundColor = .systemBackground
         view.addSubview(scrollView)
         configureViews()
