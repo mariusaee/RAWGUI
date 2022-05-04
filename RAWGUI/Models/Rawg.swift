@@ -11,7 +11,7 @@ struct Rawg: Codable {
 }
 
 struct Game: Codable {
-    let id: Int?
+    let id: Int
     let name: String?
     let descriptionRaw: String?
     let backgroundImage: String

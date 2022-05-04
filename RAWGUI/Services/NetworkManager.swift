@@ -61,3 +61,11 @@ class ImageDataManager {
         return imageData
     }
 }
+
+class GameDescriptionManager {
+    static let shared = GameDescriptionManager()
+    
+    private init() {}
+    
+    
+}

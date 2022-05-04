@@ -13,7 +13,6 @@ class GameViewController: UIViewController {
     var gameViewModel: GameViewModelProtocol! {
         didSet {
             self.navigationItem.title = gameViewModel.gameName
-//            self.descriptionLabel.text = gameViewModel.gameDescription
             guard let imageData = gameViewModel.imageData else { return }
             self.gameImageView.image = UIImage(data: imageData)
         }
