@@ -117,19 +117,19 @@
 		29C3F27A2822E546003C6112 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				29C3F27B2822E583003C6112 /* GameList */,
+				29C3F27B2822E583003C6112 /* GamesList */,
 				29C3F273281EAC92003C6112 /* GameView */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
 		};
-		29C3F27B2822E583003C6112 /* GameList */ = {
+		29C3F27B2822E583003C6112 /* GamesList */ = {
 			isa = PBXGroup;
 			children = (
 				29C3F27C2822E756003C6112 /* GamesListViewModel.swift */,
 				29034285280477170034B4E8 /* GamesListViewController.swift */,
 			);
-			path = GameList;
+			path = GamesList;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
