@@ -14,9 +14,9 @@ struct Game: Codable {
     let id: Int?
     let name: String?
     let descriptionRaw: String?
-    let backgroundImage: String?
-    var resizedImage: String? {
-        backgroundImage?.replacingOccurrences(
+    let backgroundImage: String
+    var resizedImage: String {
+        backgroundImage.replacingOccurrences(
             of: "media/games", with: "media/resize/640/-/games"
         )
     }

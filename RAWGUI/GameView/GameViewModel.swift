@@ -8,13 +8,23 @@
 import Foundation
 
 protocol GameViewModelProtocol {
-    var gameDescription: String { get }
+    var gameName: String { get }
+//    var gameDescription: String { get }
+    var imageData: Data? { get }
     init(game: Game)
 }
 
 class GameViewModel: GameViewModelProtocol {
-    var gameDescription: String {
-        game.descriptionRaw ?? "No game description"
+    var gameName: String {
+        game.name ?? "No game name"
+    }
+    
+//    var gameDescription: String {
+//        game.descriptionRaw ?? "No game description"
+//    }
+    
+    var imageData: Data? {
+        ImageDataManager.shared.fetchImageData(from: URL(string: game.resizedImage))
     }
     
     private let game: Game

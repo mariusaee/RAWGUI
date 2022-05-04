@@ -9,7 +9,15 @@ import UIKit
 
 class GameViewController: UIViewController {
     
-    var game: Game?
+    var game: Game!
+    var gameViewModel: GameViewModelProtocol! {
+        didSet {
+            self.navigationItem.title = gameViewModel.gameName
+//            self.descriptionLabel.text = gameViewModel.gameDescription
+            guard let imageData = gameViewModel.imageData else { return }
+            self.gameImageView.image = UIImage(data: imageData)
+        }
+    }
     
     private lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -28,9 +36,6 @@ class GameViewController: UIViewController {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = UIImage(named: "defaultBackgroundImage")
         imageView.contentMode = .scaleAspectFit
-        if let imageUrl = game?.resizedImage {
-            imageView.fetchImage(from: imageUrl)
-        }
         return imageView
     }()
     
@@ -49,8 +54,8 @@ class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        gameViewModel = GameViewModel(game: game)
         view.backgroundColor = .systemBackground
-        navigationItem.title = game?.name
         view.addSubview(scrollView)
         configureViews()
         setupConstraints()
