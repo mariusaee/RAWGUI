@@ -10,6 +10,8 @@ import Foundation
 protocol GameViewModelProtocol {
     var gameName: String { get }
 //    var gameDescription: String { get }
+
+    var resizedImageUrl: URL? { get }
     var imageData: Data? { get }
     init(game: Game)
 }
@@ -23,9 +25,15 @@ class GameViewModel: GameViewModelProtocol {
 //        game.descriptionRaw ?? "No game description"
 //    }
     
+    var resizedImageUrl: URL? {
+        let resizedImageUrl = game.backgroundImage.replacingOccurrences(
+            of: "media/games", with: "media/resize/640/-/games"
+        )
+        return URL(string: resizedImageUrl)
+    }
+    
     var imageData: Data? {
-        print("ImageData works")
-        return ImageDataManager.shared.fetchImageData(from: URL(string: game.resizedImage))
+        return ImageDataManager.shared.fetchImageData(from: resizedImageUrl)
     }
     
     private let game: Game
