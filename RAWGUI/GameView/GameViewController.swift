@@ -13,6 +13,7 @@ class GameViewController: UIViewController {
     var gameViewModel: GameViewModelProtocol! {
         didSet {
             self.navigationItem.title = gameViewModel.gameName
+            self.descriptionLabel.text = gameViewModel.gameDescription
             guard let imageData = gameViewModel.imageData else { return }
             self.gameImageView.image = UIImage(data: imageData)
         }
@@ -44,10 +45,10 @@ class GameViewController: UIViewController {
         descriptionLabel.sizeToFit()
         descriptionLabel.numberOfLines = 0
         descriptionLabel.lineBreakMode = .byWordWrapping
-        if let gameID = game?.id {
-            let url = "\(Link.game.rawValue)\(gameID)?key=e29e1df3581e4b07b4b7ea370b4cda67"
-            fetchGame(from: url)
-        }
+//        if let gameID = game?.id {
+//            let url = "\(Link.game.rawValue)\(gameID)?key=e29e1df3581e4b07b4b7ea370b4cda67"
+//            fetchGame(from: url)
+//        }
         return descriptionLabel
     }()
     
@@ -60,17 +61,17 @@ class GameViewController: UIViewController {
         setupConstraints()
     }
     
-    private func fetchGame(from url: String) {
-        NetworkManager.shared.fetch(dataType: Game.self, from: url) { [self] result in
-            switch result {
-            case .success(let game):
-                self.game = game
-                descriptionLabel.text = game.descriptionRaw
-            case .failure(let error):
-                print(error)
-            }
-        }
-    }
+//    private func fetchGame(from url: String) {
+//        NetworkManager.shared.fetch(dataType: Game.self, from: url) { [self] result in
+//            switch result {
+//            case .success(let game):
+//                self.game = game
+//                descriptionLabel.text = game.descriptionRaw
+//            case .failure(let error):
+//                print(error)
+//            }
+//        }
+//    }
     
     private func configureViews() {
         scrollView.addSubview(contentView)

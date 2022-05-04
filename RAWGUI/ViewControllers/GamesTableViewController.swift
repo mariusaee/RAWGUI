@@ -9,7 +9,7 @@ import UIKit
 
 class GamesTableViewController: UITableViewController {
     
-    //MARK: Private properties
+    //MARK: - Private properties
     private var rawg: Rawg?
     private var games: [Game] = []
     private var timer: Timer?
