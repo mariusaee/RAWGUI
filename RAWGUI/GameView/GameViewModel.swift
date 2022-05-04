@@ -24,7 +24,8 @@ class GameViewModel: GameViewModelProtocol {
 //    }
     
     var imageData: Data? {
-        ImageDataManager.shared.fetchImageData(from: URL(string: game.resizedImage))
+        print("ImageData works")
+        return ImageDataManager.shared.fetchImageData(from: URL(string: game.resizedImage))
     }
     
     private let game: Game

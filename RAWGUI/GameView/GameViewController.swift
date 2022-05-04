@@ -31,8 +31,8 @@ class GameViewController: UIViewController {
         return contentView
     }()
     
-    private lazy var gameImageView: GameImageView = {
-        let imageView = GameImageView()
+    private lazy var gameImageView: UIImageView = {
+        let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = UIImage(named: "defaultBackgroundImage")
         imageView.contentMode = .scaleAspectFit
