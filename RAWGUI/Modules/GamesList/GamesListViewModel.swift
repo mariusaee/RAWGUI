@@ -9,7 +9,7 @@ import Foundation
 
 protocol GamesListViewModelProtocol {
     var rawg: Rawg? { get }
-    var games: [Game] { get }
+    var games: [Game] { get set }
     func fetchGames(url: String, completion: @escaping() -> Void)
     func numberOfRows() -> Int
 }

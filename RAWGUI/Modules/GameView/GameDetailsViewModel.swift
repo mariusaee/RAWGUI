@@ -33,9 +33,9 @@ class GameDetailsViewModel: GameDetailsViewModelProtocol {
     }
     
     var resizedImageUrl: URL? {
-        let resizedImageUrl = game.backgroundImage.replacingOccurrences(
+        let resizedImageUrl = game.backgroundImage?.replacingOccurrences(
             of: "media/games", with: "media/resize/640/-/games"
-        )
+        ) ?? "--"
         return URL(string: resizedImageUrl)
     }
     

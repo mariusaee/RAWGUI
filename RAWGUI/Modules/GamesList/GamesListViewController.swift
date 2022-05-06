@@ -82,16 +82,22 @@ extension GamesListViewController {
 
 // MARK: - UISearchBarDelegate methods
 extension GamesListViewController: UISearchBarDelegate {
-//    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-//        games = []
-//        timer?.invalidate()
-//        timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { _ in
-//            self.fetchGames(from: Link.search.rawValue + searchText.replacingOccurrences(of: " ", with: "+"))
-//        }
-//    }
-//
-//    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-//        games = []
-//        fetchGames(from: Link.allGames.rawValue)
-//    }
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        self.gamesListViewModel.games.removeAll()
+        let url = Link.search.rawValue + searchText.replacingOccurrences(of: " ", with: "+")
+        
+        timer?.invalidate()
+        timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { _ in
+            self.gamesListViewModel.fetchGames(url: url) {
+                self.tableView.reloadData()
+            }
+        }
+    }
+
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        gamesListViewModel.games.removeAll()
+        gamesListViewModel.fetchGames(url: Link.allGames.rawValue) {
+            self.tableView.reloadData()
+        }
+    }
 }
