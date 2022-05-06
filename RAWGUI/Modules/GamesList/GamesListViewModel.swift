@@ -10,7 +10,7 @@ import Foundation
 protocol GamesListViewModelProtocol {
     var rawg: Rawg? { get }
     var games: [Game] { get }
-    func fetchGames(completion: @escaping() -> Void)
+    func fetchGames(url: String, completion: @escaping() -> Void)
     func numberOfRows() -> Int
 }
 
@@ -18,8 +18,8 @@ class GamesListViewModel: GamesListViewModelProtocol {
     var rawg: Rawg?
     var games: [Game] = []
     
-    func fetchGames(completion: @escaping () -> Void) {
-        NetworkManager.shared.fetch(dataType: Rawg.self, from: Link.allGames.rawValue) { result in
+    func fetchGames(url: String, completion: @escaping () -> Void) {
+        NetworkManager.shared.fetch(dataType: Rawg.self, from: url) { result in
             switch result {
             case .success(let rawg):
                 self.rawg = rawg
