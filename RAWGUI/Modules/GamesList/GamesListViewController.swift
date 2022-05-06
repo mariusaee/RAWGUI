@@ -13,18 +13,15 @@ class GamesListViewController: UITableViewController {
     private var timer: Timer?
     private let searchController = UISearchController()
     
-    private var gamesListViewModel: GamesListViewModelProtocol! {
-        didSet {
-            gamesListViewModel.fetchGames(url: Link.allGames.rawValue) {
-                self.tableView.reloadData()
-            }
-        }
-    }
+    private var gamesListViewModel: GamesListViewModelProtocol!
     
     // MARK: - UIViewController Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         gamesListViewModel = GamesListViewModel()
+        gamesListViewModel.fetchGames(url: Link.allGames.rawValue) {
+            self.tableView.reloadData()
+        }
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         setupNavigationBar()
         setupSearchController()
