@@ -105,20 +105,20 @@
 			path = RAWGUI;
 			sourceTree = "<group>";
 		};
-		29C3F273281EAC92003C6112 /* GameView */ = {
+		29C3F273281EAC92003C6112 /* GameDetailsView */ = {
 			isa = PBXGroup;
 			children = (
 				29C3F278281EAD07003C6112 /* GameDetailsViewModel.swift */,
 				297E48512805A1A20077AF8A /* GameDetailsViewController.swift */,
 			);
-			path = GameView;
+			path = GameDetailsView;
 			sourceTree = "<group>";
 		};
 		29C3F27A2822E546003C6112 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
 				29C3F27B2822E583003C6112 /* GamesList */,
-				29C3F273281EAC92003C6112 /* GameView */,
+				29C3F273281EAC92003C6112 /* GameDetailsView */,
 			);
 			path = Modules;
 			sourceTree = "<group>";

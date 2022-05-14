@@ -8,7 +8,6 @@
 import UIKit
 
 class GameDetailsViewController: UIViewController {
-    
     var game: Game!
     var gameViewModel: GameDetailsViewModelProtocol! {
         didSet {

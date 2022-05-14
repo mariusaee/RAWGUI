@@ -13,7 +13,14 @@ class GamesListViewController: UITableViewController {
     private var timer: Timer?
     private let searchController = UISearchController()
     
-    private var gamesListViewModel: GamesListViewModelProtocol!
+    private var gamesListViewModel: GamesListViewModelProtocol! {
+        didSet {
+            gamesListViewModel.fetchGames(url: Link.allGames.rawValue) {
+                self.tableView.reloadData()
+                print("Callback")
+            }
+        }
+    }
     
     // MARK: - UIViewController Methods
     override func viewDidLoad() {
@@ -93,8 +100,5 @@ extension GamesListViewController: UISearchBarDelegate {
 
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         gamesListViewModel.games.removeAll()
-        gamesListViewModel.fetchGames(url: Link.allGames.rawValue) {
-            self.tableView.reloadData()
-        }
     }
 }
