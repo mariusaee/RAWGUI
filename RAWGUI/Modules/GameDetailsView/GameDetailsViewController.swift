@@ -54,25 +54,13 @@ class GameDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         gameViewModel = GameDetailsViewModel(game: game)
-        view.backgroundColor = .systemBackground
-        view.addSubview(scrollView)
         configureViews()
         setupConstraints()
     }
     
-//    private func fetchGame(from url: String) {
-//        NetworkManager.shared.fetch(dataType: Game.self, from: url) { [self] result in
-//            switch result {
-//            case .success(let game):
-//                self.game = game
-//                descriptionLabel.text = game.descriptionRaw
-//            case .failure(let error):
-//                print(error)
-//            }
-//        }
-//    }
-    
     private func configureViews() {
+        view.backgroundColor = .systemBackground
+        view.addSubview(scrollView)
         scrollView.addSubview(contentView)
         contentView.addSubview(gameImageView)
         contentView.addSubview(descriptionLabel)

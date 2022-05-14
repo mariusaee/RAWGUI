@@ -26,9 +26,9 @@ class GamesListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         gamesListViewModel = GamesListViewModel()
-        gamesListViewModel.fetchGames(url: Link.allGames.rawValue) {
-            self.tableView.reloadData()
-        }
+//        gamesListViewModel.fetchGames(url: Link.allGames.rawValue) {
+//            self.tableView.reloadData()
+//        }
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         setupNavigationBar()
         setupSearchController()
