@@ -28,7 +28,6 @@ class GameDetailsViewModel: GameDetailsViewModelProtocol {
     }
     
     var gameDescription: String {
-        // TODO: should return game.descriptionRaw from the gameUrl
         game.descriptionRaw ?? "No game description"
     }
     
