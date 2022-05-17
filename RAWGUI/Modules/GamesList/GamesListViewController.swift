@@ -98,5 +98,8 @@ extension GamesListViewController: UISearchBarDelegate {
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         gamesListViewModel.games.removeAll()
+        gamesListViewModel.fetchGames(url: Link.allGames.rawValue) {
+            self.tableView.reloadData()
+        }
     }
 }
