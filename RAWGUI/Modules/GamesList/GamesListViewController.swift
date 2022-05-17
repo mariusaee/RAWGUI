@@ -13,14 +13,14 @@ class GamesListViewController: UITableViewController {
     private var timer: Timer?
     private let searchController = UISearchController()
     
-    private var gamesListViewModel: GamesListViewModelProtocol! {
-        didSet {
-            gamesListViewModel.fetchGames(url: Link.allGames.rawValue) {
-                self.tableView.reloadData()
-                print("Callback")
-            }
-        }
-    }
+    private var gamesListViewModel: GamesListViewModelProtocol! //{
+//        didSet {
+//            gamesListViewModel.fetchGames(url: Link.allGames.rawValue) {
+//                self.tableView.reloadData()
+//                print("Callback")
+//            }
+//        }
+//    }
     
     // MARK: - UIViewController Methods
     override func viewDidLoad() {
@@ -29,6 +29,9 @@ class GamesListViewController: UITableViewController {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         setupNavigationBar()
         setupSearchController()
+        gamesListViewModel.fetchGames(url: Link.allGames.rawValue) {
+            self.tableView.reloadData()
+        }
     }
     
     // MARK: - Private methods
@@ -79,14 +82,9 @@ extension GamesListViewController {
         let gameID = gamesListViewModel.games[indexPath.row].id
         let url = "\(Link.game.rawValue)\(gameID)?key=e29e1df3581e4b07b4b7ea370b4cda67"
         
-        NetworkManager.shared.fetch(dataType: Game.self, from: url) { result in
-            switch result {
-            case .success(let fetchedGame):
-                gameVC.game = fetchedGame
-                self.navigationController?.pushViewController(gameVC, animated: true)
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
+        gamesListViewModel.fetchGame(url: url) {
+            gameVC.game = self.gamesListViewModel.game
+            self.navigationController?.pushViewController(gameVC, animated: true)
         }
     }
 }
