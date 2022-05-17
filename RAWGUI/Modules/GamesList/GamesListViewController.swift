@@ -12,7 +12,6 @@ class GamesListViewController: UITableViewController {
     //MARK: - Properties
     private var timer: Timer?
     private let searchController = UISearchController()
-    
     private var gamesListViewModel: GamesListViewModelProtocol!
     
     // MARK: - UIViewController Methods

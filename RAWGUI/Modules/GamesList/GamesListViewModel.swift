@@ -40,7 +40,6 @@ class GamesListViewModel: GamesListViewModelProtocol {
             case .success(let fetchedGame):
                 self.game = fetchedGame
                 completion()
-//                self.navigationController?.pushViewController(gameVC, animated: true)
             case .failure(let error):
                 print(error.localizedDescription)
             }
