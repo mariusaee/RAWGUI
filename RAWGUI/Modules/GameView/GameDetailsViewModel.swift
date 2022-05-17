@@ -29,7 +29,7 @@ class GameDetailsViewModel: GameDetailsViewModelProtocol {
     
     var gameDescription: String {
         // TODO: should return game.descriptionRaw from the gameUrl
-        "gameDescription"
+        game.descriptionRaw ?? "No game description"
     }
     
     var resizedImageUrl: URL? {
