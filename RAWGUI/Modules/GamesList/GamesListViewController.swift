@@ -67,7 +67,6 @@ extension GamesListViewController {
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let lastElement = gamesListViewModel.games.count - 2
-
         if indexPath.item == lastElement {
             guard let url = gamesListViewModel.rawg?.next else { return }
             gamesListViewModel.fetchGames(url: url) {
@@ -79,8 +78,19 @@ extension GamesListViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let gameVC = GameDetailsViewController()
-        gameVC.game = gamesListViewModel.games[indexPath.row]
-        navigationController?.pushViewController(gameVC, animated: true)
+        
+        let gameID = gamesListViewModel.games[indexPath.row].id
+        let url = "\(Link.game.rawValue)\(gameID)?key=e29e1df3581e4b07b4b7ea370b4cda67"
+        
+        NetworkManager.shared.fetch(dataType: Game.self, from: url) { result in
+            switch result {
+            case .success(let fetchedGame):
+                gameVC.game = fetchedGame
+                self.navigationController?.pushViewController(gameVC, animated: true)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
 }
 
@@ -97,7 +107,7 @@ extension GamesListViewController: UISearchBarDelegate {
             }
         }
     }
-
+    
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         gamesListViewModel.games.removeAll()
     }
