@@ -44,10 +44,6 @@ class GameDetailsViewController: UIViewController {
         descriptionLabel.sizeToFit()
         descriptionLabel.numberOfLines = 0
         descriptionLabel.lineBreakMode = .byWordWrapping
-//        if let gameID = game?.id {
-//            let url = "\(Link.game.rawValue)\(gameID)?key=e29e1df3581e4b07b4b7ea370b4cda67"
-//            fetchGame(from: url)
-//        }
         return descriptionLabel
     }()
     
