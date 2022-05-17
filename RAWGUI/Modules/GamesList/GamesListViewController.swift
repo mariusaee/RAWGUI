@@ -13,14 +13,7 @@ class GamesListViewController: UITableViewController {
     private var timer: Timer?
     private let searchController = UISearchController()
     
-    private var gamesListViewModel: GamesListViewModelProtocol! //{
-//        didSet {
-//            gamesListViewModel.fetchGames(url: Link.allGames.rawValue) {
-//                self.tableView.reloadData()
-//                print("Callback")
-//            }
-//        }
-//    }
+    private var gamesListViewModel: GamesListViewModelProtocol!
     
     // MARK: - UIViewController Methods
     override func viewDidLoad() {
