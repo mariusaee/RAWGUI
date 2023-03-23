@@ -12,7 +12,7 @@ protocol GameDetailsViewModelProtocol {
     var gameUrl: String { get }
     var gameDescription: String { get }
     var resizedImageUrl: URL? { get }
-    var imageData: Data? { get }
+    // var imageData: Data? { get }
     
     init(game: Game)
 }
@@ -38,9 +38,13 @@ class GameDetailsViewModel: GameDetailsViewModelProtocol {
         return URL(string: resizedImageUrl)
     }
     
-    var imageData: Data? {
-        ImageDataManager.shared.fetchImageData(from: resizedImageUrl)
-    }
+    // var imageData: Data? {
+    //     var returnData: Data?
+    //     ImageDataManager.shared.fetchImageData(from: resizedImageUrl) { data in
+    //         returnData = data
+    //     }
+    //     return returnData
+    // }
     
     private let game: Game
     

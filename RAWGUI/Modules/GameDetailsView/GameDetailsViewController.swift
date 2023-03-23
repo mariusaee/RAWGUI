@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class GameDetailsViewController: UIViewController {
     var game: Game!
@@ -13,8 +14,6 @@ class GameDetailsViewController: UIViewController {
         didSet {
             self.navigationItem.title = gameViewModel.gameName
             self.descriptionLabel.text = gameViewModel.gameDescription
-            guard let imageData = gameViewModel.imageData else { return }
-            self.gameImageView.image = UIImage(data: imageData)
         }
     }
     
@@ -35,6 +34,10 @@ class GameDetailsViewController: UIViewController {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = UIImage(named: "defaultBackgroundImage")
         imageView.contentMode = .scaleAspectFit
+        imageView.sd_imageIndicator = SDWebImageActivityIndicator.large
+        if let imageURL = gameViewModel.resizedImageUrl {
+            imageView.sd_setImage(with: imageURL)
+        }
         return imageView
     }()
     
@@ -76,6 +79,7 @@ class GameDetailsViewController: UIViewController {
             
             gameImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             gameImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
+            gameImageView.heightAnchor.constraint(greaterThanOrEqualToConstant: 200),
             gameImageView.heightAnchor.constraint(lessThanOrEqualToConstant: 250),
             
             descriptionLabel.topAnchor.constraint(equalTo: gameImageView.bottomAnchor, constant: 10),
