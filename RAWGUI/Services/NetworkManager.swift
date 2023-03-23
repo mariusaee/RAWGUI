@@ -48,27 +48,6 @@ class NetworkManager {
             }
         }.resume()
     }
-    
-    func fetchGame(from url: String?, with completion: @escaping(Game) -> Void) {
-        guard let urlString = url else { return }
-        guard let url = URL(string: urlString) else { return }
-        
-        URLSession.shared.dataTask(with: url) { data, _, error in
-            guard let data = data else {
-                print(error?.localizedDescription ?? "No localized description")
-                return
-            }
-            do {
-                let game = try JSONDecoder().decode(Game.self, from: data)
-                DispatchQueue.main.async {
-                    completion(game)
-                }
-            } catch let jsonError {
-                print(jsonError)
-            }
-            
-        }.resume()
-    }
 }
 
 class ImageDataManager {
@@ -76,9 +55,17 @@ class ImageDataManager {
     
     private init() {}
     
-    func fetchImageData(from url: URL?) -> Data? {
-        guard let url = url else { return nil }
-        guard let imageData = try? Data(contentsOf: url) else { return nil }
-        return imageData
+    func fetchImageData(from url: URL?, completion: @escaping(Data?) -> Void) {
+        guard let url = url else { return }
+        URLSession.shared.dataTask(with: url) { data, _, error in
+            if let data = data {
+                completion(data)
+            } else {
+                if let error = error {
+                    print(error.localizedDescription)
+                }
+                completion(nil)
+            }
+        }.resume()
     }
 }
