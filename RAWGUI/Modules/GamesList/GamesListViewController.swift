@@ -7,9 +7,10 @@
 
 import UIKit
 
-class GamesListViewController: UITableViewController {
+class GamesListViewController: UIViewController {
     
     //MARK: - Properties
+    private let tableView = UITableView()
     private var timer: Timer?
     private let searchController = UISearchController()
     private var gamesListViewModel: GamesListViewModelProtocol!
@@ -18,7 +19,7 @@ class GamesListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         gamesListViewModel = GamesListViewModel()
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        setupTableView()
         setupNavigationBar()
         setupSearchController()
         gamesListViewModel.fetchGames(url: Link.allGames.rawValue) {
@@ -27,6 +28,18 @@ class GamesListViewController: UITableViewController {
     }
     
     // MARK: - Private methods
+    private func setupTableView() {
+        view.addSubview(tableView)
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.topAnchor.constraint(equalTo:view.topAnchor).isActive = true
+        tableView.leftAnchor.constraint(equalTo:view.leftAnchor).isActive = true
+        tableView.rightAnchor.constraint(equalTo:view.rightAnchor).isActive = true
+        tableView.bottomAnchor.constraint(equalTo:view.bottomAnchor).isActive = true
+    }
+    
     private func setupNavigationBar() {
         title = "Games"
         navigationController?.navigationBar.prefersLargeTitles = true
@@ -42,12 +55,12 @@ class GamesListViewController: UITableViewController {
 }
 
 // MARK: - Table view data source methods
-extension GamesListViewController {
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+extension GamesListViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         gamesListViewModel.numberOfRows()
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         var content = cell.defaultContentConfiguration()
         
@@ -57,7 +70,7 @@ extension GamesListViewController {
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let lastElement = gamesListViewModel.games.count - 2
         if indexPath.item == lastElement {
             guard let url = gamesListViewModel.rawg?.next else { return }
@@ -67,7 +80,7 @@ extension GamesListViewController {
         }
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let gameVC = GameDetailsViewController()
         
